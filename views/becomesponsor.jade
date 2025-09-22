@@ -1,0 +1,66 @@
+extend template
+
+block css
+	link(rel='stylesheet', href='/css/becomesponsor.css')
+
+block content
+	.main-container
+		.main.wrapper.clearfix
+			article
+				header
+					h3 
+						i(class="fa fa-briefcase fa-md") 
+						|  Become a League sponsor
+					p
+
+				section
+					h4 All shuffleboard tables are distributed by the league sponsors
+					br
+					h4 League sponsors are entities capable of securing ten or more head leases on shuffleboards and then be responsible for distribution to locations.
+					br
+					h4 There are many benefits to becoming a league sponsor.
+					br
+					h4 To receive information on becoming a league sponsor please make an online request:
+
+				header
+					h3 
+						i(class="fa fa-info-circle fa-md") 
+						|  Request form
+					p
+
+				section
+					form#form(data-toggle='validator', role='form')
+						.form-group
+							label.control-label(for='inputName') Business Name
+							input#BusinessName.form-control(type='text', placeholder='Your business name', required='')
+
+						.form-group
+							label.control-label(for='inputName') Contact Name
+							input#ContactName.form-control(type='text', placeholder='Your name', required='')
+
+						.form-group
+							label.control-label(for='inputPosition') Position
+							input#Position.form-control(type='text', placeholder='Marketing Specialist', required='')
+
+						.form-group
+							label.control-label(for='inputPhone') Business Phone Number
+							input#Phone.form-control(type='tel', placeholder='416-423-1234', required='')
+
+						.form-group
+							label.control-label(for='inputPhone') Contact phone number (if different from business)
+							input#Phone.form-control(type='tel', placeholder='416-423-1234')
+
+						.form-group
+							label.control-label(for='inputAddress') Business Address
+							input#Phone.form-control(type='text', placeholder='1926 Johnson Rd, Toronto, ON, N2L 3E6', required='')
+
+						.form-group
+							label.control-label(for='inputEmail') Email
+							input#Phone.form-control(type='email', placeholder='Jason@theleague.ca', data-error='Bruh, that email address is invalid', required='')
+							.help-block.with-errors
+
+						.form-group
+							button#form.btn.btn-primary(type='submit') Submit
+
+block js
+	script(src='/js/becomesponsor.js')

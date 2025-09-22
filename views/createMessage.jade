@@ -1,0 +1,54 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/createMessage.css')
+    link(rel='stylesheet', href='/vendors/dropzone/dropzone.css')
+    script(src='https://js.stripe.com/v2/')
+    script(src='https://checkout.stripe.com/checkout.js')
+
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article
+              header
+                h3
+                    i(class="fa fa-shopping-cart fa-md")
+                    |  Create a Shirt Message
+
+              h2 About Shirt Messages
+              h4 When you wear a shirt with a message you become a walking billboard. Once you have registered as a Shirt Club member you can create a shirt message. The cost for hosting a standard shirt message is $25.00 per year. You may as well purchase an &quot;Enhanced Message&quot; or a &quot;Managed Message&quot;.
+              h3 Use your message to:
+              ul
+                  li Promote a business
+                  li Promote a good cause
+                  li Help find a missing person
+                  li Or just be funny
+              h4 The possibilities are infinite.
+              h4 Create a shirt message now!
+              br
+              h2 Standard Message vs. Managed Message:
+              h4 Standard messages are &quot;fixed&quot; messages. Once created they can never be changed. Why? Shirts with standard messages are designed to be sold to the general population; hopefully thousands of people will purchase shirts with your message and the purchaser must know what message they are delivering when wearing their shirt.
+              h4 Managed messages are designed to be used by individuals or companies where distribution of shirts is controlled. e.g.
+                ul
+                li A popular talk show host purchases a managed message. She wears a shirt with her message number and each day millions of television viewers search the number on the Shirt Club app to reveal her secret message. The message can be changed every day and the host may use the managed message to promote a good cause, to give things away or to profit from delivering an advertisement to millions of viewers.
+                li Sponsors of a professional golfer put a number in a circle on the golfer&#39;s shirt. During the tournament millions of viewers search the number on the Shirt Club app to reveal the sponsor&#39;s promotion. The promotion can be changed every day or every hour. The sponsor is in complete control of the Managed Message.
+                li A restaurant chain prints a number relating to a Managed Message on the wait staff&#39;s uniforms. Each day customers will search the number they see when wait staff approaches to reveal the restaurant&#39;s daily specials.
+              h4 The cost for hosting a Managed shirt message is $1,250.00 per year.
+              h4 The Enhanced Message: the Enhanced Message is a fixed message but provided for those that would like to display content above and beyond the content limits of the Standard Message. To create an Enhanced Message first purchase a Standard Message then contact us for Enhanced Message pricing.
+              br
+              h2 Create a Shirt Message Now:
+              h1
+                a(href="/purchase-standard-message") Standard Message - $25.00
+              h1
+                a(href="/purchase-managed-message") Managed Message - $1,250.00
+              br
+              img(src='/images/stripe.png')
+
+
+block js
+    script(type='text/javascript').
+            var memberId = !{JSON.stringify(member_id)};
+    script(src='/js/createMessage.js')
+    script(src='/js/Authenticated.js')
+    script(src='/vendors/dropzone/dropzone.js')

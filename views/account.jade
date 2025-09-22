@@ -1,0 +1,202 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/account.css')
+
+
+block content
+    .main-container
+        .main.wrapper.clearfix
+            article
+                header
+                    h3 Hi #{user.first_name}!
+                    h4 Member ID: #{user.member_id}
+                    p
+                    h4#membership-status
+
+                div#managed-message-section
+
+                h3 Update Your Profile:
+                section
+                    form#form(data-toggle='validator', role='form')
+                        .form-group
+                            .col-sm-6(style="padding:0; padding-right: 15px;")
+                                label.control-label Email
+                                input#Email.form-control(type='email', placeholder='Jason@theleague.ca', value='#{user.email}')
+                                .help-block.with-errors
+
+                            .col-sm-6(style="padding:0")
+                                label.control-label Confirm Email
+                                input#ConfirmEmail.form-control(type='email', placeholder='Jason@theleague.ca', value='#{user.email}')
+                                .help-block.with-errors
+
+
+                        .form-group
+
+                            label.control-label Street Name
+                            input#Street.form-control(type='text', placeholder='1926 Johnson Rd', value='#{user.street}')
+                            br
+
+                            .row
+                                .col-lg-3
+                                    .input-group
+                                        label.control-label Zone
+                                        .dropdown
+                                            button.btn.btn-default.dropdown-toggle#selectZone(type='button' data-toggle='dropdown' aria-expanded='true') Select
+                                                span.caret
+                                            ul.dropdown-menu#zone
+                                                <li><a value="USA" >USA </a></li>
+                                                <li><a value="Canada" >Canada </a></li>
+                                                <li><a value="Great Britain" >Great Britain </a></li>
+                                                <li><a value="South America" >South America </a></li>
+                                                <li><a value="Asia" >Asia </a></li>
+                                                <li><a value="Africa" >Africa </a></li>
+                                                <li><a value="Europe" >Europe </a></li>
+                                                <li><a value="Australia" >Australia </a></li>
+                                                <li><a value="Other" >Other </a></li>
+
+                                .col-lg-3(id='state-dropdown' style='display:none;')
+                                    .input-group
+                                        label.control-label State
+                                        .dropdown
+                                            button.btn.btn-default.dropdown-toggle#selectState(type='button' data-toggle='dropdown' aria-expanded='true') Select
+                                                span.caret
+                                            ul.dropdown-menu#state
+                                                <li role="presentation"><a value="AL" >Alabama </a></li>
+                                                <li role="presentation"><a value="AK" >Alaska </a></li>
+                                                <li role="presentation"><a value="AZ" >Arizona </a></li>
+                                                <li role="presentation"><a value="AR" >Arkansas </a></li>
+                                                <li role="presentation"><a value="CA" >California </a></li>
+                                                <li role="presentation"><a value="CO" >Colorado </a></li>
+                                                <li role="presentation"><a value="CT" >Connecticut </a></li>
+                                                <li role="presentation"><a value="DE" >Delaware </a></li>
+                                                <li role="presentation"><a value="FL" >Florida </a></li>
+                                                <li role="presentation"><a value="GA" >Georgia </a></li>
+                                                <li role="presentation"><a value="HI" >Hawaii </a></li>
+                                                <li role="presentation"><a value="ID" >Idaho </a></li>
+                                                <li role="presentation"><a value="IL" >Illinois </a></li>
+                                                <li role="presentation"><a value="IN" >Indiana </a></li>
+                                                <li role="presentation"><a value="IA" >Iowa </a></li>
+                                                <li role="presentation"><a value="KS" >Kansas </a></li>
+                                                <li role="presentation"><a value="KY" >Kentucky </a></li>
+                                                <li role="presentation"><a value="LA" >Louisiana </a></li>
+                                                <li role="presentation"><a value="ME" >Maine </a></li>
+                                                <li role="presentation"><a value="MD" >Maryland </a></li>
+                                                <li role="presentation"><a value="MA" >Massachusetts </a></li>
+                                                <li role="presentation"><a value="MI" >Michigan </a></li>
+                                                <li role="presentation"><a value="MN" >Minnesota </a></li>
+                                                <li role="presentation"><a value="MS" >Mississippi </a></li>
+                                                <li role="presentation"><a value="MO" >Missouri </a></li>
+                                                <li role="presentation"><a value="MT" >Montana </a></li>
+                                                <li role="presentation"><a value="NE" >Nebraska </a></li>
+                                                <li role="presentation"><a value="NV" >Nevada </a></li>
+                                                <li role="presentation"><a value="NH" >New Hampshire </a></li>
+                                                <li role="presentation"><a value="NJ" >New Jersey </a></li>
+                                                <li role="presentation"><a value="NM" >New Mexico </a></li>
+                                                <li role="presentation"><a value="NY" >New York </a></li>
+                                                <li role="presentation"><a value="NC" >North Carolina </a></li>
+                                                <li role="presentation"><a value="ND" >North Dakota </a></li>
+                                                <li role="presentation"><a value="OH" >Ohio </a></li>
+                                                <li role="presentation"><a value="OK" >Oklahoma </a></li>
+                                                <li role="presentation"><a value="OR" >Oregon </a></li>
+                                                <li role="presentation"><a value="PA" >Pennsylvania </a></li>
+                                                <li role="presentation"><a value="RI" >Rhode Island </a></li>
+                                                <li role="presentation"><a value="SC" >South Carolina </a></li>
+                                                <li role="presentation"><a value="SD" >South Dakota </a></li>
+                                                <li role="presentation"><a value="TN" >Tennessee </a></li>
+                                                <li role="presentation"><a value="TX" >Texas </a></li>
+                                                <li role="presentation"><a value="UT" >Utah </a></li>
+                                                <li role="presentation"><a value="VT" >Vermont </a></li>
+                                                <li role="presentation"><a value="VA" >Virginia </a></li>
+                                                <li role="presentation"><a value="WA" >Washington </a></li>
+                                                <li role="presentation"><a value="WV" >West Virginia </a></li>
+                                                <li role="presentation"><a value="WI" >Wisconsin </a></li>
+                                                <li role="presentation"><a value="WY" >Wyoming </a></li>
+
+                                .col-lg-3(id='province-dropdown' style='display:none;')
+                                    .input-group
+                                        label.control-label Province
+                                        .dropdown
+                                            button.btn.btn-default.dropdown-toggle#selectProvince(type='button' data-toggle='dropdown' aria-expanded='true') Select
+                                                span.caret
+                                            ul.dropdown-menu#province
+                                                <li role="presentation"><a value="AB" >AB </a></li>
+                                                <li role="presentation"><a value="BC" >BC </a></li>
+                                                <li role="presentation"><a value="MB" >MB </a></li>
+                                                <li role="presentation"><a value="NB" >NB </a></li>
+                                                <li role="presentation"><a value="NL" >NL </a></li>
+                                                <li role="presentation"><a value="NS" >NS </a></li>
+                                                <li role="presentation"><a value="NT" >NT </a></li>
+                                                <li role="presentation"><a value="NU" >NU </a></li>
+                                                <li role="presentation"><a value="ON" >ON </a></li>
+                                                <li role="presentation"><a value="PE" >PE </a></li>
+                                                <li role="presentation"><a value="QC" >QC </a></li>
+                                                <li role="presentation"><a value="SK" >SK </a></li>
+                                                <li role="presentation"><a value="YT" >YT </a></li>
+
+                                .col-lg-3(id='country-input' style='display:none;')
+                                    .input-group
+                                        label.control-label Country
+                                        input#Country.form-control(type='text', value='#{user.country}')
+
+                                .col-lg-3
+                                    .input-group
+
+                                        label.control-label City
+                                        input#City.form-control(type='text', placeholder='Toronto', value='#{user.city}')
+
+
+
+
+                                .col-lg-3
+                                    .input-group
+                                        label.control-label Zip/Postal Code
+                                        input#Zip.form-control(type='text', placeholder='N2L 3E6', value='#{user.zip}')
+
+                        .form-group.marbottom(style='height: 82px')
+                            label.control-label Phone Number
+                            br
+                            .form-group.col-sm-6.pw-col-1
+                                input#Phone.form-control(type='text', placeholder='416-423-1234', value='#{user.phone}')
+                            .form-group.col-sm-6.pw-col-2
+                                label.radio-inline
+                                    input(type='radio', name='phone_number_type', value='home')
+                                    | Home
+                                label.radio-inline
+                                    input(type='radio', name='phone_number_type', value='business')
+                                    | Business
+                                label.radio-inline
+                                    input(type='radio', name='phone_number_type', value='cell')
+                                    | Cell
+
+                        .form-group.marbottom(style="height: 110px;")
+                            div Password
+                            br
+                            .form-group.col-sm-6.pw-col-1.marbotzero
+                                input#Password.form-control(type='password', data-minlength='6', placeholder='Password', value='#{user.password}')
+                                span.help-block Minimum of 6 characters
+
+                        .form-group.marbottom
+                            div Confirm Password
+                            br
+                            .form-group.col-sm-6.pw-col-2
+                                input#PasswordConfirm.form-control(type='password', data-match='#inputPassword', data-match-error="Whoops, these don't match" placeholder="Confirm", value='#{user.password}')
+                                .help-block.with-errors
+
+                        .form-group(style='float:left; width: 100%')
+                            button#form.btn.btn-primary(type='submit') Update
+
+                        .form-group#registrationStatus
+
+
+
+
+block js
+    script(src='/js/Authenticated.js')
+    script(type='text/javascript').
+        var user = !{JSON.stringify(user)};
+        var managedMessages = !{JSON.stringify(managed_messages)};
+    script(src='/js/account.js')
+    if(user.admin)
+        script(src='/js/ShowAdminTab.js')

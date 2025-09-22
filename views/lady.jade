@@ -1,0 +1,76 @@
+extends template
+
+block css
+    if(auth)
+        link(rel='stylesheet', href='/css/member.css')
+
+
+
+block content
+        .main-container
+            .main.wrapper.clearfix
+                article
+                    header
+                        h2 
+                            i(class="fa fa-bar-chart fa-md")
+                            | Standings
+                    .row
+                        .col-md-5
+                            section
+                                h3 Search by Location
+                                p
+                                button.btn.btn-primary.searchWorld World
+                                p
+                                    .form-group
+                                        .dropdown
+                                            button.btn.btn-default.dropdown-toggle#selectCountry(type='button' data-toggle='dropdown' aria-expanded='true') Country 
+                                                span.caret
+                                            ul.dropdown-menu#country(role='menu' aria-labelledby='selectCountry')
+                                                li(role='presentation')
+                                                    a(value='canada') Canada 
+                                                li(role='presentation')
+                                                    a(value='usa') USA 
+
+                                    .form-group
+                                        .dropdown
+                                            button.btn.btn-default.dropdown-toggle#selectProvince(type='button' data-toggle='dropdown' aria-expanded='true') State/Province 
+                                                span.caret
+                                            ul.dropdown-menu#province(role='menu' aria-labelledby='selectProvince')
+
+                                    .form-group
+                                        .dropdown
+                                            button.btn.btn-default.dropdown-toggle#selectCity(type='button' data-toggle='dropdown' aria-expanded='true') City 
+                                                span.caret
+                                            ul.dropdown-menu#city(role='menu' aria-labelledby='selectCity')
+
+                                button(class="btn btn-primary btn-bg submitLocationSearch") Submit
+                        
+                        .col-md-2
+                            h1 OR
+
+                        .col-md-5
+                            section
+                                h3 Search by Table Number
+                                p
+                                    input#tableId(type="text", name="tableId", placeholder="Table Number")
+                            
+                                button(class="btn btn-primary btn-bg submitTableNum") Submit
+
+
+
+                    .row
+                        .col-md-12.text-center
+
+
+                    .row
+                        .col-md-12
+                            section#results
+
+
+
+                        
+
+block js
+    script(src='/js/lady.js')
+    if(auth)
+        script(src='/js/Authenticated.js')

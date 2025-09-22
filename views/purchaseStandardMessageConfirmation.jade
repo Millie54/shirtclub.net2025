@@ -1,0 +1,21 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/purchaseStandardMessageConfirmation.css')
+
+block content
+    .main-container
+        .main.wrapper.clearfix
+            article
+                h1 Loading
+
+
+block js
+    script(src='/js/purchaseStandardMessageConfirmation.js')
+    script(src='/js/Authenticated.js')
+    script(type='text/javascript').
+      var user = !{JSON.stringify(user)};
+    script(src='/js/memberActivation.js')
+    if(user.admin)
+        script(src='/js/ShowAdminTab.js')

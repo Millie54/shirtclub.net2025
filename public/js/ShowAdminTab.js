@@ -1,0 +1,1 @@
+$('nav').find($('ul')).append('<li><a href="/admin">Admin</a></li>');

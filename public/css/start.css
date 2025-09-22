@@ -1,0 +1,40 @@
+.signleController {
+	display: none;
+}
+
+.multiController {
+	display: none;
+}
+
+.gameModeController{
+	display: none;
+}
+
+.horseGameController{
+	display: none;
+}
+
+.singleGameStarted{
+	display: none;
+}
+
+.multiGameStarted{
+	display: none;
+}
+
+.horseGameStarted{
+	display: none;
+}
+
+
+.multiDisplayP3, .multiDisplayP7, .multiDisplayP4, .multiDisplayP8{
+	display: none;
+}
+
+.horseDisplayPlayer3, .horseDisplayPlayer4, .horseDisplayPlayer5, .horseDisplayPlayer6, .horseDisplayPlayer7, .horseDisplayPlayer8{
+	display: none;
+}
+
+.horsedisplaytoCollectP2, .horsedisplaytoCollectP3, .horsedisplaytoCollectP4, .horsedisplaytoCollectP5, .horsedisplaytoCollectP6, .horsedisplaytoCollectP7, .horsedisplaytoCollectP8{
+	display: none;
+}

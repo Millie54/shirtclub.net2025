@@ -1,0 +1,81 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/closet.css')
+    link(rel='stylesheet', href='/vendors/dropzone/dropzone.css')
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            .row
+              .col-sm-12
+                header
+                  h3 My Closet
+                  h4 Keep track of your shirts to receive invitations and offers.
+                  h4 Example: an invitation to join a "Circle Shirt" event.
+                  br
+                  h4 Allow others to see your closet (Public) or not (Private)
+                  h4 Choosing "Public" will allow people to see your closet when your Member ID number is searched.
+                  input(type='radio', id="privacy_private", name='privacy', value='private')
+                  label(for='privacy_private')
+                    | &nbsp&nbspPrivate
+                  br
+                  input(type='radio', id="privacy_public", name='privacy', value='public')
+                  label(for='privacy_public')
+                    | &nbsp&nbspPublic
+                section
+                  button(id='add-new-shirt') Add a New Shirt
+                  div(id='new-shirt-section', style='display: none;')
+                    h3 Symbols:
+                    div(style='font-size: 15px') Tell us about your shirts. What symbols do you own?
+                    select(id='new-symbol')
+                      option(value='circle') Circle
+                      option(value='triangle') Triangle
+                      option(value='square') Square
+                      option(value='star') Star
+                    h3 Message Number
+                    input(type='text', id="new-message-number")
+                    h3 Description:
+                    textarea(id="description-text", rows="4", cols="50", placeholder='(Max 100 characters)')
+                    h3 Picture
+                    div(style='max-width: 370px;') Upload one picture of your shirt. You can change this picture at any time
+                      form#new-pic.dropzone(action='/image', drop-zone='')
+                    button(id='create-new-shirt-button') Create
+                section
+                  table(id='existing-shirts', class='table')
+                section
+                    div(id='edit-shirt-modal', tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true').modal.fade
+                        .modal-dialog(role='document')
+                            .modal-content
+                                .modal-header
+                                    h2#exampleModalLabel.modal-title Edit This Shirt
+                                .modal-body
+                                    h3 Symbol
+                                    select(id='edit-shirt-symbol')
+                                      option(value='circle') Circle
+                                      option(value='triangle') Triangle
+                                      option(value='square') Square
+                                      option(value='star') Star
+                                    h3 Message Number
+                                    input(type='text', id="edit-message-number")
+                                    h3 Description
+                                    textarea(id='edit-shirt-description', rows="4", cols="50" placeholder='(Max 100 characters)')
+                                    h3 Picture:
+                                    div(style='max-width: 370px;')
+                                      form(id='edit-shirt-pic', action='/image', drop-zone='').dropzone
+                                    button(id='edit-shirt-update-button') Update
+                                .modal-footer
+                                    button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+
+              .col-sm-6
+                .details
+
+
+
+block js
+    script(src='/js/Authenticated.js')
+    script(src='/js/closet.js')
+    script(type='text/javascript').
+      var user = !{JSON.stringify(user)};
+    script(src='/vendors/dropzone/dropzone.js')

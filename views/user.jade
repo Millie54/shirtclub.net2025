@@ -1,0 +1,39 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/user.css')
+    script(src='/vendors/viewerjs/dist/viewer.min.js')
+    link(rel='stylesheet', href='/vendors/viewerjs/dist/viewer.min.css')
+    if(auth)
+        link(rel='stylesheet', href='/css/Authenticated.css')
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article
+              if inactive
+                h3 This shirt is currently NOT ACTIVE.
+                br
+                h4 Search Again?
+                input#search(type="text", name="search", placeholder="Enter Message Number")
+                p
+                button#submit.btn.btn-primary Submit
+              else if !user
+                h3 User Not Found
+                br
+                h4 Search Again?
+                input#search(type="text", name="search", placeholder="Enter Shirt Number")
+                p
+                button#submit.btn.btn-primary Submit
+              else
+                h3 Member #{user.member_id}
+                hr
+                .userProfile
+
+block js
+    script(type='text/javascript').
+        var user = !{JSON.stringify(user)};
+        var message = !{JSON.stringify(message)};
+    script(src='/js/user.js')
+    if(auth)
+        script(src='/js/Authenticated.js')

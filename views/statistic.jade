@@ -1,0 +1,72 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/statistic.css')
+    if(auth)
+        link(rel='stylesheet', href='/css/member.css')
+
+
+block content
+        .main-container
+            .main.wrapper.clearfix
+                article
+                    header
+                        h2 
+                            i(class="fa fa-bar-chart fa-md")
+                            | Player Statistics
+                        br
+
+                    section
+                        form#form
+                            .form-group
+                                label Enter Player Name:
+                                    p
+                                    input#p1.form-control(type='text', placeholder='superman')
+
+                            .form-group
+                                label For Team Stats Enter Second Player Name Below:
+                                    p
+                                    input#p2.form-control(type='text', placeholder='batman')
+
+                            button#form.btn.btn-primary(type='submit') Submit
+
+                    section#result
+                        div#single
+                            h1 SuffleBoard Single
+                            div.singleContents
+                                .singleMessage
+                                #singlePlayer
+                                #singleGamesPlayed
+                                #singleGamesWon
+                                #singleWinPercentage
+                                #singleTotalPointsScored
+                                #singleScoringAverage
+                            hr
+                        div#horse
+                            h1 Horse Collar
+                            div.horseContents
+                                .horseMessage
+                                #horsePlayer
+                                #horseGamesPlayed
+                                #horseGamesWon
+                                #horseWinPercentage
+                                #horseTotalPointsScored
+                                #horseScoringAverage
+                        div#team
+                            h1 ShuffleBoard Team
+                            div.multiContents
+                                .multiMessage
+                                #multiPlayer1
+                                #multiPlayer2
+                                #multiGamesPlayed
+                                #multiGamesWon
+                                #multiWinPercentage
+                                #multiTotalPointsScored
+                                #multiScoringAverage
+
+
+
+block js
+    script(src='/js/statistic.js')
+    if(auth)
+        script(src='/js/Authenticated.js')

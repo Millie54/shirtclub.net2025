@@ -1,0 +1,30 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/purchaseManagedMessageConfirmation.css')
+
+block content
+    .main-container
+        .main.wrapper.clearfix
+            article
+                h1 Managed Message ID: #{message_id}
+                h4 Enter URL to be used with your Managed Message:
+                input#input(value="", placeholder="http://yourwebsite.com", style="width: 100%; margin-bottom: 10px")
+                button.btn.btn-primary#submit Submit
+                h4 Note you may change the URL associated with your message ID number by going to the&nbsp
+                    a(href="/account") Account
+                    | &nbsparea of the shirtclub.net website.
+                h4 Need help setting up your Managed Message?&nbsp
+                    a(href="/contact") Contact us
+
+
+block js
+    script(src='/js/purchaseManagedMessageConfirmation.js')
+    script(src='/js/Authenticated.js')
+    script(type='text/javascript').
+      var user = !{JSON.stringify(user)};
+      var messageID = !{JSON.stringify(message_id)};
+    script(src='/js/memberActivation.js')
+    if(user.admin)
+        script(src='/js/ShowAdminTab.js')

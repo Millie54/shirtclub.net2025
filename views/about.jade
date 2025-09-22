@@ -1,0 +1,84 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/about.css')
+    if(auth)
+        link(rel='stylesheet', href='/css/member.css')
+
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article
+              section
+                h1 About the Shirt Club
+                h4 A message from Shirt Club founder:
+                h4 I knew an old man who was a very good story teller. One of his stories went like this...
+                h5(style="color:grey;font-style: italic;") A young man gets sentenced to do time in a State penitentiary. The first night at dinner a convict a few tables away stood up and screamed out “148”. All of the convicts in the dining room began to laugh. A few minutes later another convict stood up and belted out “ 262”; again, laughter throughout the room. By the time dinner had ended three more men stood up and delivered three more numbers and each time the convicts in the dining room responded with side-splitting laughter. That night before going to bed the young man turned to his much older cell mate and asked “What happened at dinner?” “Why did everyone start laughing when the convicts stood up and called out numbers?” The old convict explained that meal times were the only time of day when all of the inmates were congregated together. Prisoners were not allowed to converse for fear that they may conspire to revolt or plan escapes. The convicts had compiled a secret list of jokes and each was assigned a number. All convicts studied the list of jokes and when a number was called at dinner each knew the joke related to the number.
+                h4 There is more to the story. It has a funny ending but the important part of the story has been told. It occurred to me one day that there was something clever and appealing about what the convicts were doing; using a number to reference some larger body of content. And then I thought again and realized the convict’s system could be used to create a beautiful tool to enhance social networking. The Shirt Club was born.
+              section
+                h1 About Membership
+                h4 Step 1: Registration is free. Sign up as a member and create your "Dynamic Form".
+                h4 Step 2: Activate your membership. Cost is $8.00 per year. This fee is for hosting and once membership is active your information will be displayed for all to see.
+              section
+                h1 About the Shirts
+                h4 Where to buy:
+                ol
+                  li We do not sell shirts but do not worry. We have lots of friends who do. Search for a company in your area that provides “Direct to Garment” printing services. Or simply fill out our contact form and we will direct you to a company in your area.
+                  li Special places and special events: look for Shirt Club shirts in special places. They will carry a message number pertaining to the special place or special event that you have attended.
+                  li You may buy a shirt anywhere or apply a graphic to shirts you may already own. To be recognized however your shirt should follow the
+                    a(href="/about#convention") "Shirt Club Convention".
+              section
+                h1 About Shirt Messages
+                h4 When purchasing a shirt with a message you will be given an option to have both the message number and your member number placed on the shirt and you are able to select the locations where you would like these numbers to appear on the shirt.
+                h4 Your member number will reveal the information that you provide on the “dynamic form” in our “Manage Your Shirt” area.
+                h4 When you wear a shirt with a message you become a walking billboard.
+                ul
+                  li Promote a business
+                  li Promote a good cause
+                  li Help find a missing person
+                  li Or just be funny
+                h4 The possibilities are infinite.
+                h4
+                  a(href="/createMessage") Create a shirt message now!
+                h2 Standard Message vs. Managed Message:
+                h4 Standard messages are &quot;fixed&quot; messages. Once created they can never be changed. Why? Shirts with standard messages are designed to be sold to the general population; hopefully thousands of people will purchase shirts with your message and the purchaser must know what message they are delivering when wearing their shirt.
+                h4 Managed messages are designed to be used by individuals or companies where distribution of shirts is controlled. e.g.
+                ul
+                  li A popular talk show host purchases a managed message. She wears a shirt with her message number and each day millions of television viewers search the number on the Shirt Club app to reveal her secret message. The message can be changed every day and the most may use the managed message to promote a good cause, to give things away or to profit from delivering an advertisement to millions of viewers.
+                  li Sponsors of a professional golfer put a number in a circle on the golfer&#39;s shirt. During the tournament millions of viewers search the number on the Shirt Club app to reveal the sponsor&#39;s promotion. The promotion can be changed every day or every hour. The sponsor is in complete control of the Managed Message.
+                  li A restaurant chain prints a number relating to a Managed Message on the wait staff&#39;s uniforms. Each day customers will search the number they see when wait staff approaches to reveal the restaurant&#39;s daily specials.
+                h3 The Enhanced Message:
+                h4 if you would like a message that delivers more than the Standard message content of: 150 words plus one picture and one link to a website then our IT department can create a custom enhanced message for you. Please &nbsp
+                  a(href="/contact") contact us &nbsp
+                  | to or send an email to messages@shirtclub.net
+              section
+                h1(id='convention') The Shirt Club Convention
+                h4 You do not need to buy shirts from the Shirt Club. You are welcome to create your own shirts. But to be recognized as a Shirt Club shirt your shirt must contain 2 things.
+                ul
+                  li Your membership ID number or a message number.
+                  li A symbol.
+              section
+                h1 About Symbols:
+                h4 We have four categories of symbol allowed in the convention.
+                ul
+                  li Circle
+                  li Square
+                  li Triangle
+                  li Star
+                ul
+                  li Circles/Ovals: The circle category is not restricted to circles. Ovals are permitted in this category.
+                  li Squares/Quadrilaterals: The square category is not restricted to squares. Any four sided figure is permitted (Rectangles - Parallelograms - Rhombus - Trapezoid - Kite).
+                  li Triangles: any kind of three sided figure.
+                  li Stars: We think stars have 5 points but if you want more or less points go for it. You do want people to recognize your creation as a star.
+              section
+                h1 About My Closet
+                h4 "My Closet" is a place where you can keep track of the number of shirts you own and as well let others know what kind of person you are ; Circle, Square, Triangle or Star". Also, you will receive recognition whenever you purchase a &quot;GP&quot; shirt (Good Person).
+              section
+                h1 About “Shirt 2 Shirt”
+                h4 “Shirt 2 Shirt” is exciting. It allows you to chat to another shirt. A great tool to break the ice and have some fun. Coming soon.
+
+block js
+    script(src='/js/about.js')
+    if(auth)
+        script(src='/js/Authenticated.js')

@@ -1,0 +1,29 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/thanks.css')
+
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article
+              header
+                h3 
+                    i(class='fa fa-diamond fa-md')
+                    |  Thanks for playing!
+
+              section
+                h4
+                    a(href='/find') Find a shuffleboard
+                h4
+                    a(href='/start') Start a game
+                h4
+                    a(href='#') Find a game
+                h4
+                    a(href='/standings') Standings and statistics
+                h4 
+                    a(href='/shop') Shop for league wear
+
+block js
+    script(src='/js/thanks.js')

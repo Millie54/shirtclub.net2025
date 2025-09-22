@@ -1,0 +1,357 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/start.css')
+
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article.selectionController
+              header
+                h3 
+                    i(class='fa fa-gamepad fa-md')
+                    |  It's game time, #{first_name}!
+
+              section
+                h4 Select Game Type:
+                .row
+                    .col-lg-6
+                        h4
+                            button.gameType.selectShuffleboard(value="ShuffleBoard" type="button" class="btn btn-default btn-lg btn-block") Shuffleboard
+                    .col-lg-6
+                        h4
+                            button.gameType.selectHorseCollar(value="HorseCollar" type="button" class="btn btn-default btn-lg btn-block") Horse Collar
+
+              // If Shuffleboard is slected
+              section.gameModeController
+                h4 Select Game Mode:
+                .row
+                    .col-lg-6
+                        h4
+                            button.gameMode.selectSingle(value="Single" type="button" class="btn btn-default btn-lg btn-block") Singles Game
+                    .col-lg-6
+                        h4
+                            button.gameMode.selectMulti(value="Multi" type="button" class="btn btn-default btn-lg btn-block") Doubles or Team Game
+
+                .row
+                    .col-lg-12
+                      // For Single
+                      div.signleController
+                        .row
+                            .col-lg-12
+                                label.control-label Table Number:
+                                input#SingleTable.form-control(type='text', placeholder='2069', required='')
+                        br
+                        .row
+                            .col-lg-6
+                                label.control-label Player 1 User Name:
+                                h4
+                                    strong
+                                        i(value='#{user_name}' class='fa fa-diamond singleP1')  #{user_name}
+                            .col-lg-6
+                                label.control-label Player 2 User Name:
+                                input.singleP2.form-control(type='text', placeholder='Superman', required='')
+                        br
+                        .row
+                            .col-lg-12
+                                button.startGame(value="SingleGameStarted" type="button" class="btn btn-default btn-lg btn-block") Start
+
+                      // For Multi
+                      div.multiController
+                        .row
+                            .col-lg-12
+                                label.control-label Table Number:
+                                input#MultiTable.form-control(type='text', placeholder='2069', required='')
+                        br
+                        .row
+                            .col-xs-6
+                                h4
+                                    label.control-label Team1:
+                            .col-xs-6
+                                h4
+                                    label.control-label Team2:
+                        br
+                        .row
+                            .col-xs-6
+                                label.control-label Player 1 User Name:
+                                h4
+                                    strong
+                                        i(value='#{user_name}' class='fa fa-diamond multiP1')  #{user_name}
+                            .col-xs-6
+                                label.control-label Player 1 User Name:
+                                input.multiP5.form-control(type='text', placeholder='Superman', required='')
+                        br
+                        .row
+                            .col-xs-6
+                                label.control-label Player 2 User Name:
+                                input.multiP2.form-control(type='text', placeholder='Ninja', required='')
+                            .col-xs-6
+                                label.control-label Player 2 User Name:
+                                input.multiP6.form-control(type='text', placeholder='Superman', required='')
+                        br
+                        .row
+                            .col-xs-6
+                                .multiDisplayP3
+                                    label.control-label Player 3 User Name:
+                                    input.multiP3.form-control(type='text', placeholder='Ninja', required='')
+                            .col-xs-6
+                                .multiDisplayP7
+                                    label.control-label Player 3 User Name:
+                                    input.multiP7.form-control(type='text', placeholder='Superman', required='')
+                        br
+                        .row
+                            .col-xs-6
+                                .multiDisplayP4
+                                    label.control-label Player 4 User Name:
+                                    input.multiP4.form-control(type='text', placeholder='Ninja', required='')
+                            .col-xs-6
+                                .multiDisplayP8
+                                    label.control-label Player 4 User Name:
+                                    input.multiP8.form-control(type='text', placeholder='Superman', required='')
+                        .row
+                            .col-xs-6
+                                h4.multiAddPlayerTeam1
+                                    i(class='fa fa-plus-circle')  Add one more player on Team 1
+                            .col-xs-6
+                                h4.multiAddPlayerTeam2
+                                    i(class='fa fa-plus-circle')  Add one more player on Team 2
+                        br
+                        .row
+                            .col-lg-12
+                                button.startGame(value="MultiGameStarted" type="button" class="btn btn-default btn-lg btn-block") Start
+
+              // If Horse Game is selected
+              section.horseGameController
+                    .row
+                        .col-lg-12
+                            label.control-label Table Number:
+                            input#HorseTable.form-control(type='text', placeholder='2069', required='')
+                    
+                    br
+                    .row
+                        .col-xs-6
+                            h4
+                                label.control-label Player 1 User Name:
+                        .col-xs-6
+                            h4
+                                strong
+                                    i(value='#{user_name}' class='fa fa-diamond horseP1')  #{user_name}
+                    br
+                    .row
+                        .col-xs-6
+                            h4
+                                label.control-label Player 2 User Name:
+                        .col-xs-6
+                            h4
+                                input.horseP2.form-control(type='text', placeholder='Superman', required='')
+
+                    .row.horseDisplayPlayer3
+                        .col-xs-6
+                            h4
+                                label.control-label Player 3 User Name:
+                        .col-xs-6
+                            h4
+                                input.horseP3.form-control(type='text', placeholder='Superman', required='')
+
+                    .row.horseDisplayPlayer4
+                        .col-xs-6
+                            h4
+                                label.control-label Player 4 User Name:
+                        .col-xs-6
+                            h4
+                                input.horseP4.form-control(type='text', placeholder='Superman', required='')
+
+                    .row.horseDisplayPlayer5
+                        .col-xs-6
+                            h4
+                                label.control-label Player 5 User Name:
+                        .col-xs-6
+                            h4
+                                input.horseP5.form-control(type='text', placeholder='Superman', required='')
+
+                    .row.horseDisplayPlayer6
+                        .col-xs-6
+                            h4
+                                label.control-label Player 6 User Name:
+                        .col-xs-6
+                            h4
+                                input.horseP6.form-control(type='text', placeholder='Superman', required='')
+
+                    .row.horseDisplayPlayer7
+                        .col-xs-6
+                            h4
+                                label.control-label Player 7 User Name:
+                        .col-xs-6
+                            h4
+                                input.horseP7.form-control(type='text', placeholder='Superman', required='')
+
+                    .row.horseDisplayPlayer8
+                        .col-xs-6
+                            h4
+                                label.control-label Player 8 User Name:
+                        .col-xs-6
+                            h4
+                                input.horseP8.form-control(type='text', placeholder='Superman', required='')
+                    br
+                    .row
+                        .col-lg-12
+                            h4.addHorsePlayer
+                                    i(class='fa fa-plus-circle')  Add one more player
+                    br
+                    .row
+                        .col-lg-12
+                            button.startGame(value="HorseGameStarted" type="button" class="btn btn-default btn-lg btn-block") Start
+
+            // User started a Single Game
+            article.singleGameStarted
+                section
+                    h3 Play game to 15 points
+                    br
+                    h4 To end game:
+                    br
+                    ur
+                        li Enter scores for all players
+                        li Close game
+                    br
+                    h4 Etiquette: please show your opponent scores so that they may verify information as correct before closing game.
+                    br
+                    h4 Note: Any player may dispute game results afterwards if disagreements exist for posted results.
+                    br
+                    h3 Enter Game Results:
+                    br
+                    .row
+                        .col-lg-6
+                            .player1.singleGame
+                                h4
+                                    strong
+                                        i(class='fa fa-diamond')  #{user_name}
+                        .col-lg-6
+                            .player2.singleGame
+                    br
+                    .row
+                        .col-lg-6
+                            input#Player1S.form-control(type='text', placeholder='Score', required='')
+                        .col-lg-6
+                            input#Player2S.form-control(type='text', placeholder='Score', required='')
+                    br
+                    .row
+                        .col-lg-12
+                            button.SubmitSingle(value="SingleGameComplete" type="button" class="btn btn-default btn-lg btn-block") Submit
+
+            // User started a Multi Game
+            article.multiGameStarted
+                section
+                    h3 Play game to 21 points
+                    br
+                    h4 To end game:
+                    br
+                    ur
+                        li Enter scores for each team
+                        li Close game
+                    br
+                    h4 Etiquette: please show your opponent scores so that they may verify information as correct before closing game.
+                    br
+                    h4 Note: Any player may dispute game results afterwards if disagreements exist for posted results.
+                    br
+                    h3 Enter Game Results:
+                    br
+                    .row
+                        .col-lg-6
+                            .team1 Team 1:
+                        .col-lg-6
+                            .team2 Team 2:
+                    br
+                    .row
+                        .col-lg-6
+                            input#Team1S.form-control(type='text', placeholder='Score', required='')
+                        .col-lg-6
+                            input#Team2S.form-control(type='text', placeholder='Score', required='')
+                    br
+                    .row
+                        .col-lg-12
+                            button.SubmitMulti(value="MultiGameComplete" type="button" class="btn btn-default btn-lg btn-block") Submit
+
+            // User started a Horse Game
+            article.horseGameStarted
+                section
+                    h3 Play game to 31 points
+                    br
+                    h4 To end game:
+                    br
+                    ur
+                        li Enter scores for all players
+                        li Close game
+                    br
+                    h4 Etiquette: please show your opponent scores so that they may verify information as correct before closing game.
+                    br
+                    h4 Note: Any player may dispute game results afterwards if disagreements exist for posted results.
+                    br
+                    h3 Enter Game Results:
+                    br
+                    .row.displaytoCollectP1
+                        .col-lg-6
+                            .horseP1CollectScore
+                                h4
+                                    strong
+                                        i(class='fa fa-diamond')  #{user_name}
+                        .col-lg-6
+                            input#Horse1S.form-control(type='text', placeholder='Score', required='')
+                    
+                    .row.horsedisplaytoCollectP2
+                    
+                        .col-lg-6
+                            .horseP2CollectScore
+                        .col-lg-6
+                            input#Horse2S.form-control(type='text', placeholder='Score', required='')
+                        br
+                    .row.horsedisplaytoCollectP3
+                    
+                        .col-lg-6
+                            .horseP3CollectScore
+                        .col-lg-6
+                            input#Horse3S.form-control(type='text', placeholder='Score', required='')
+                        br
+                    .row.horsedisplaytoCollectP4
+                    
+                        .col-lg-6
+                            .horseP4CollectScore
+                        .col-lg-6
+                            input#Horse4S.form-control(type='text', placeholder='Score', required='')
+                        br
+                    .row.horsedisplaytoCollectP5
+                    
+                        .col-lg-6
+                            .horseP5CollectScore
+                        .col-lg-6
+                            input#Horse5S.form-control(type='text', placeholder='Score', required='')
+                        br
+                    .row.horsedisplaytoCollectP6
+                    
+                        .col-lg-6
+                            .horseP6CollectScore
+                        .col-lg-6
+                            input#Horse6S.form-control(type='text', placeholder='Score', required='')
+                        br
+                    .row.horsedisplaytoCollectP7
+
+                        .col-lg-6
+                            .horseP7CollectScore
+                        .col-lg-6
+                            input#Horse7S.form-control(type='text', placeholder='Score', required='')
+                        br
+                    .row.horsedisplaytoCollectP8
+                    
+                        .col-lg-6
+                            .horseP8CollectScore
+                        .col-lg-6
+                            input#Horse8S.form-control(type='text', placeholder='Score', required='')
+                        br
+                    br
+                    .row
+                        .col-lg-12
+                            button.SubmitHorse(value="HorseGameComplete" type="button" class="btn btn-default btn-lg btn-block") Submit
+block js
+    script(src='/js/Authenticated.js')
+    script(src='/js/start.js')

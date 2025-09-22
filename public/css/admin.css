@@ -1,0 +1,16 @@
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+#map {
+	height: 30%;
+	width: 30%;
+	margin: 0 auto;
+	display: none;
+	margin-top: 30px;
+}
+
+.add-day-input{
+	width: 40px;
+}

@@ -1,0 +1,50 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/bulkOrder.css')
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article
+              header.text-center
+                h4 For orders of 100 shirts or more please provide contact information in the form below and a Shirt Club associate will contact you to assist with your order.
+                h4 When buying in quantity Shirt Club can offer a greater variety of clothing items.
+                h4 As well the printing process changes and savings in the cost of printing are passed on to our customers.
+                br
+                h4 Please fill in the following information:
+              section.text-center
+                h5 Name:
+                input.textInput(form-property='name')
+                h5 Company Name:
+                input.textInput(form-property='company_name')
+                h5 Address:
+                input.textInput(style='width:500px;' form-property='address')
+                h5 Telephone Number:
+                input.textInput(form-property='phone')
+                h5 Email address:
+                input.textInput(form-property='email')
+                h5 Clothing Type:
+                .dropdown
+                    button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-expanded='true') Select 
+                        span.caret
+                    ul.dropdown-menu
+                        li(role='presentation' form-property='clothing_type')
+                            a(value='T-Shirt') T-Shirt 
+                            a(value='Long Sleeve Crew Neck') Long Sleeve Crew Neck 
+                            a(value='Polo') Polo 
+                            a(value='Sweat Shirt') Sweat Shirt 
+                            a(value='Hoodie') Hoodie 
+                            a(value='Jacket') Jacket 
+                            a(value='Hats') Hats 
+                h5 Anticipated Quantity:
+                input.textInput(form-property='quantity')
+                h5 Please tell us a bit about your project/event (optional)
+                textarea.textInput(style='width:500px; height:100px;' form-property='about')
+              div.text-center
+                button#form.btn.btn-primary Submit
+
+
+block js
+    script(src='/js/bulkOrder.js')
+    script(src='/js/Authenticated.js')

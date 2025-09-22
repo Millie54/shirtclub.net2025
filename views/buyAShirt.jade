@@ -1,0 +1,19 @@
+extend template
+
+block css
+	link(rel='stylesheet', href='/css/buyAShirt.css')
+
+
+block content
+	.main-container
+		.main.wrapper.clearfix
+			h4 
+				| Please visit 
+				a(href="https://www.shirtclub.shop") www.shirtclub.shop 
+				| to find a supplier in your area.
+			h4 Or simply contact us and we will make an introduction.
+			h4
+				a(href="mailto:info@shirtclub.net") info@shirtclub.net
+
+block js
+	script(src='/js/buyAShirt.js')

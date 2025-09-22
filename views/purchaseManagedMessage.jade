@@ -1,0 +1,41 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/purchaseManagedMessage.css')
+
+
+block content
+    .main-container
+        .main.wrapper.clearfix
+            article
+                header
+                    h3
+                        i(class="fa fa-shopping-cart fa-md")
+                        |  Create a Shirt Message
+
+                h4 Be creative and profit by creating a Managed Shirt Message.
+                h4 The cost to create a Managed Shirt Message is $1,250.00
+                h4 Your Managed Message will be hosted for a period of one year from the date of purchase and may be renewed at the end of the one year period.
+                h4 How to create a Shirt Message:
+                h4 Upon purchase of your managed message you will be assigned a message number and be provided with a form where you will enter a URL that will be associated with your message.
+                hr
+                h4
+                    | Create a Shirt Message
+                    span(style="margin-left:150px;") $1250.00
+                hr
+                button.btn.btn-primary#pay Pay Now
+                br
+                img(src='/images/stripe.png')
+
+
+block js
+    script(src='/js/Authenticated.js')
+    script(src='/vendors/swal2.js')
+    script(src='https://js.stripe.com/v3/')
+    script(src='/js/purchaseManagedMessage.js')
+    script(type='text/javascript').
+      var user = !{JSON.stringify(user)};
+    script(src='/js/memberActivation.js')
+    if(user.admin)
+        script(src='/js/ShowAdminTab.js')

@@ -1,0 +1,137 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/contact.css')
+    if(auth)
+        link(rel='stylesheet', href='/css/member.css')
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article
+              header.text-center
+                h5 Contact us directly by e-mail at <a href="mailto:info@shirtclub.net">info@shirtclub.net</a> or by phone at 1-705-325-9820.
+                h5 To receive more information about our services please fill out the form below.
+                br
+                strong Please fill in the following information
+              section.text-center
+                h5 Contact Name
+                input.name
+                h5 Company Name
+                input.cname
+                h5 Address1
+                input.add1
+                h5 Address2
+                input.add2
+                h5 City/Town
+                input.city
+                h5 Zone
+                .dropdown
+                  button.btn.btn-default.dropdown-toggle#selectZone(type='button' data-toggle='dropdown' aria-expanded='true') Select
+                    span.caret
+                  ul.dropdown-menu#zone(role='menu' aria-labelledby='selectZone')
+                    <li><a value="USA" >USA </a></li>
+                    <li><a value="Canada" >Canada </a></li>
+                    <li><a value="Great Britain" >Great Britain </a></li>
+                    <li><a value="South America" >South America </a></li>
+                    <li><a value="Asia" >Asia </a></li>
+                    <li><a value="Africa" >Africa </a></li>
+                    <li><a value="Europe" >Europe </a></li>
+                    <li><a value="Australia" >Australia </a></li>
+                    <li><a value="Other" >Other </a></li>
+                div(id='state-dropdown' style='display:none;')
+                  h5 State
+                  .dropdown
+                    button.btn.btn-default.dropdown-toggle#selectState(type='button' data-toggle='dropdown' aria-expanded='true') Select
+                      span.caret
+                    ul.dropdown-menu#state(role='menu')
+                      <li role="presentation"><a value="AL" >Alabama </a></li>
+                      <li role="presentation"><a value="AK" >Alaska </a></li>
+                      <li role="presentation"><a value="AZ" >Arizona </a></li>
+                      <li role="presentation"><a value="AR" >Arkansas </a></li>
+                      <li role="presentation"><a value="CA" >California </a></li>
+                      <li role="presentation"><a value="CO" >Colorado </a></li>
+                      <li role="presentation"><a value="CT" >Connecticut </a></li>
+                      <li role="presentation"><a value="DE" >Delaware </a></li>
+                      <li role="presentation"><a value="FL" >Florida </a></li>
+                      <li role="presentation"><a value="GA" >Georgia </a></li>
+                      <li role="presentation"><a value="HI" >Hawaii </a></li>
+                      <li role="presentation"><a value="ID" >Idaho </a></li>
+                      <li role="presentation"><a value="IL" >Illinois </a></li>
+                      <li role="presentation"><a value="IN" >Indiana </a></li>
+                      <li role="presentation"><a value="IA" >Iowa </a></li>
+                      <li role="presentation"><a value="KS" >Kansas </a></li>
+                      <li role="presentation"><a value="KY" >Kentucky </a></li>
+                      <li role="presentation"><a value="LA" >Louisiana </a></li>
+                      <li role="presentation"><a value="ME" >Maine </a></li>
+                      <li role="presentation"><a value="MD" >Maryland </a></li>
+                      <li role="presentation"><a value="MA" >Massachusetts </a></li>
+                      <li role="presentation"><a value="MI" >Michigan </a></li>
+                      <li role="presentation"><a value="MN" >Minnesota </a></li>
+                      <li role="presentation"><a value="MS" >Mississippi </a></li>
+                      <li role="presentation"><a value="MO" >Missouri </a></li>
+                      <li role="presentation"><a value="MT" >Montana </a></li>
+                      <li role="presentation"><a value="NE" >Nebraska </a></li>
+                      <li role="presentation"><a value="NV" >Nevada </a></li>
+                      <li role="presentation"><a value="NH" >New Hampshire </a></li>
+                      <li role="presentation"><a value="NJ" >New Jersey </a></li>
+                      <li role="presentation"><a value="NM" >New Mexico </a></li>
+                      <li role="presentation"><a value="NY" >New York </a></li>
+                      <li role="presentation"><a value="NC" >North Carolina </a></li>
+                      <li role="presentation"><a value="ND" >North Dakota </a></li>
+                      <li role="presentation"><a value="OH" >Ohio </a></li>
+                      <li role="presentation"><a value="OK" >Oklahoma </a></li>
+                      <li role="presentation"><a value="OR" >Oregon </a></li>
+                      <li role="presentation"><a value="PA" >Pennsylvania </a></li>
+                      <li role="presentation"><a value="RI" >Rhode Island </a></li>
+                      <li role="presentation"><a value="SC" >South Carolina </a></li>
+                      <li role="presentation"><a value="SD" >South Dakota </a></li>
+                      <li role="presentation"><a value="TN" >Tennessee </a></li>
+                      <li role="presentation"><a value="TX" >Texas </a></li>
+                      <li role="presentation"><a value="UT" >Utah </a></li>
+                      <li role="presentation"><a value="VT" >Vermont </a></li>
+                      <li role="presentation"><a value="VA" >Virginia </a></li>
+                      <li role="presentation"><a value="WA" >Washington </a></li>
+                      <li role="presentation"><a value="WV" >West Virginia </a></li>
+                      <li role="presentation"><a value="WI" >Wisconsin </a></li>
+                      <li role="presentation"><a value="WY" >Wyoming </a></li>
+                div(id='province-dropdown' style='display:none;')
+                  h5 Province
+                    .dropdown
+                      button.btn.btn-default.dropdown-toggle#selectProvince(type='button' data-toggle='dropdown' aria-expanded='true') Select
+                        span.caret
+                      ul.dropdown-menu#province(role='menu')
+                        <li role="presentation"><a value="AB" >AB </a></li>
+                        <li role="presentation"><a value="BC" >BC </a></li>
+                        <li role="presentation"><a value="MB" >MB </a></li>
+                        <li role="presentation"><a value="NB" >NB </a></li>
+                        <li role="presentation"><a value="NL" >NL </a></li>
+                        <li role="presentation"><a value="NS" >NS </a></li>
+                        <li role="presentation"><a value="NT" >NT </a></li>
+                        <li role="presentation"><a value="NU" >NU </a></li>
+                        <li role="presentation"><a value="ON" >ON </a></li>
+                        <li role="presentation"><a value="PE" >PE </a></li>
+                        <li role="presentation"><a value="QC" >QC </a></li>
+                        <li role="presentation"><a value="SK" >SK </a></li>
+                        <li role="presentation"><a value="YT" >YT </a></li>
+                div(id='country-input' style='display:none;')
+                  h5 Country
+                  input.country
+                h5 Postal code
+                input.zip
+                h5 Phone (w/area code)
+                input.phone
+                h5 Email
+                input.email
+              section.text-center
+                h5 Leave your questions or comments below
+                  br
+                  br
+                  textarea.form-control(rows='3')
+              div.text-center
+                button#form.btn.btn-primary Submit
+
+block js
+    script(src='/js/contact.js')
+    if(auth)
+        script(src='/js/Authenticated.js')

@@ -1,0 +1,30 @@
+.price{
+	position: absolute;
+	right: 900px;
+}
+
+#itemImage{
+	position: absolute;
+	left:40%;
+}
+
+.noPurchasePosition{
+	margin-left:50px;
+}
+
+.summaryTotalTableData{
+	border-top: 3px #8a8a8a solid !important;
+}
+
+.noBorderTableData{
+	border: none !important;
+}
+
+.shirtSelection{
+	display: inline-block;
+	cursor: pointer;
+}
+
+.selectedShirt{
+	border: #669900 solid 3px;
+}

@@ -1,0 +1,44 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/member.css')
+
+
+block content
+  .main-container
+    .main.wrapper.clearfix
+      article
+        header
+          h3
+              i(class='fa fa-diamond fa-md')
+              |  Welcome, #{name}!
+              br
+              h3 Your membership login ID is #{member_id}
+
+        div#display-hints
+
+        section
+          h3
+            a(href="/createMessage") Create a Shirt Message
+          h3
+            a(href="/profile") Manage Your Shirt
+          
+
+
+        section
+          h3 Search a Shirt Message:
+          p
+          input#searchMessage(type="text", name="search", placeholder="Enter Shirt Message Number", style="width:45%;")
+          p
+          button#submitSearchMessage.btn.btn-primary Submit
+
+
+block js
+  script(src='/js/template.js')
+  script(src='/js/Authenticated.js')
+  script(type='text/javascript').
+      var user = !{JSON.stringify(user)};
+  script(src='/js/member.js')
+  if(user.admin)
+    script(src='/js/ShowAdminTab.js')

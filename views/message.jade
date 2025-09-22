@@ -1,0 +1,31 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/message.css')
+    script(src='/vendors/viewerjs/dist/viewer.min.js')
+    link(rel='stylesheet', href='/vendors/viewerjs/dist/viewer.min.css')
+    if(auth)
+        link(rel='stylesheet', href='/css/Authenticated.css')
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article
+              if !message
+                h3 Message Not Found
+                br
+                h4 Search Again?
+                input#search(type="text", name="search", placeholder="Enter Message Number")
+                p
+                button#submit.btn.btn-primary Submit
+              else
+                h3 Message #{message.message_id}
+                hr
+                .messageInfo
+
+block js
+    script(type='text/javascript').
+        var message = !{JSON.stringify(message)};
+    script(src='/js/message.js')
+    if(auth)
+        script(src='/js/Authenticated.js')

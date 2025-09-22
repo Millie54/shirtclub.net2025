@@ -1,0 +1,56 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/purchaseStandardMessage.css')
+    link(rel='stylesheet', href='/vendors/dropzone/dropzone.css')
+
+
+block content
+    .main-container
+        .main.wrapper.clearfix
+            article
+                header
+                    h3
+                        i(class="fa fa-shopping-cart fa-md")
+                        |  Create a Shirt Message
+
+                h4 Be creative and profit by creating a Shirt Message.
+                h4 The cost to create a Standard Shirt Message is $25.00
+                h4 How to create a Shirt Message:
+                h4 You will be able to display the following information:
+                ul
+                    li One picture
+                    li One link to a website
+                    li A message with up to 150 words of text
+                hr
+                h3 Start creating a Shirt Message now:
+                br
+                h4 Message:
+                textarea#message(rows="8", cols="80")
+                h4 Link To a Website:
+                input#link(type="text")
+                h4 Picture (Upload up to 1 picture here):
+                form#pic.dropzone(action='/image', drop-zone='')
+                br
+                hr
+                h4
+                    | Create a Shirt Message
+                    span(style="margin-left:150px;") $25.00
+                hr
+                button.btn.btn-primary#pay Pay Now
+                br
+                img(src='/images/stripe.png')
+
+
+block js
+    script(src='/js/Authenticated.js')
+    script(src='/vendors/dropzone/dropzone.js')
+    script(src='/vendors/swal2.js')
+    script(src='https://js.stripe.com/v3/')
+    script(src='/js/purchaseStandardMessage.js')
+    script(type='text/javascript').
+      var user = !{JSON.stringify(user)};
+    script(src='/js/memberActivation.js')
+    if(user.admin)
+        script(src='/js/ShowAdminTab.js')

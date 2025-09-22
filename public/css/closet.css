@@ -1,0 +1,8 @@
+.shirt-symbol{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+#edit-shirt-pic .dz-preview .dz-image img {
+    max-width: 100% !important;
+}

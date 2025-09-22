@@ -1,0 +1,49 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/memberActivation.css')
+
+block content
+    .main-container
+        .main.wrapper.clearfix
+            article
+                header
+                    h3 Membership Message:
+                    div Thank you for registering. We are certain that being a Shirt Club member will add fun to your life.
+                    h3 About your membership:
+                    div To be an active Shirt Club member a membership fee of $8.00 per year is required.
+                    h3 Why?
+                    div
+                        strong Reason 1:&nbsp
+                        | the Shirt Club does not sell shirts. You can purchase a shirt anywhere or take a shirt that you already own and print your member ID number on the shirt.
+                    div
+                        strong Reason 2:&nbsp
+                        | the Shirt Club does not sell advertising. We generate no revenue from advertising or from the sale of clothing.
+                    div
+                        strong Reason 3:&nbsp
+                        | When you place your member ID number on a shirt you are in effect advertising a website and the fee of $8.00 per year is the fee the Shirt Club charges to host your website.
+                    h3 What is 8 dollars?
+                    ul
+                        li $8.00 per year equals 67 cents per month
+                        li $8.00 per year equals 15 cents per week
+                        li $8.00 per year equals about 2 cents a day.
+                    div It's time to start having:
+                        strong Fun with Shirts!
+            article(style='text-align:center')
+                hr
+                h1 1 Year Membership $8 USD
+                hr
+                div#checkout.btn.btn-primary Pay Now
+                div
+                    img(src='/images/stripe.png')
+
+
+block js
+    script(src='https://js.stripe.com/v3/')
+    script(src='/js/Authenticated.js')
+    script(type='text/javascript').
+        var user = !{JSON.stringify(user)};
+    script(src='/js/memberActivation.js')
+    if(user.admin)
+        script(src='/js/ShowAdminTab.js')

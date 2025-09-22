@@ -1,0 +1,43 @@
+{
+  "name": "delcoin-application",
+  "version": "1.0.0",
+  "description": "Delcoin-Application",
+  "keywords": [
+    "OpenShift",
+    "Node.js",
+    "application",
+    "openshift"
+  ],
+  "author": "Terry-Chen <masterterrychen@gmail.com> (http://terrychen.me)",
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+  "env": {
+    "PYTHON": "/tmp/Python-2.7.3"
+  },
+  "dependencies": {
+    "async": "1.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6",
+    "express-session": "^1.17.1",
+    "http-auth": "2.2.8",
+    "jade": "1.9.2",
+    "mailgun-js": "^0.22.0",
+    "mkdirp": "0.5.1",
+    "mysql": "^2.18.1",
+    "passport": "0.2.1",
+    "passport-local": "1.0.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.2",
+    "stripe": "^8.53.0"
+  },
+  "bundleDependencies": [],
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "ISC"
+}

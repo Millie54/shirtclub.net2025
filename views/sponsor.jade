@@ -1,0 +1,200 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/sponsor.css')
+
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article
+              header
+                h3 
+                    i(class='fa fa-diamond fa-md')
+                    |  Welcome, #{name}!
+
+              section
+                h4 Selecting your favourite sponsors will allow you to wear sponsors’ logos on WSBL clothing and to receive special offers from sponsors.
+
+              section
+                .form-group
+                    .row
+                        .col-lg-4
+                            .input-group.beer
+                                label.control-label Beer
+                                .dropdown
+                                    button.btn.btn-default.dropdown-toggle#selectBeer(type='button' data-toggle='dropdown' aria-expanded='true') Select 
+                                        span.caret
+                                    ul.dropdown-menu#beer
+                                        li
+                                            a(value='Blue') Blue 
+                                        li
+                                            a(value='Blue light') Blue light 
+                                        li
+                                            a(value='Budweiser') Budweiser 
+                                        li
+                                            a(value='Bud Light') Bud Light 
+                                        li
+                                            a(value='Busch') Busch  
+                                        li
+                                            a(value='Carling Lager') Carling Lager 
+                                        li
+                                            a(value='Coors light') Coors light 
+                                        li
+                                            a(value='Corona or Corona Light') Corona or Corona Light 
+                                        li
+                                            a(value='Heineken') Heineken 
+                                        li
+                                            a(value='Keiths') Keiths 
+                                        li
+                                            a(value='Mill St.') Mill St. 
+                                        li
+                                            a(value='Molson Canadian') Molson Canadian 
+                                        li
+                                            a(value='Steam Whistle') Steam Whistle 
+                                        li
+                                            a(value='Other') Other 
+                                        li
+                                            a(value='None of the above') None of the above 
+                                br
+
+                        .col-lg-4
+                            .input-group.liquor
+                                label.control-label Liquor
+                                .dropdown
+                                    button.btn.btn-default.dropdown-toggle#selectLiquor(type='button' data-toggle='dropdown' aria-expanded='true') Select 
+                                        span.caret
+                                    ul.dropdown-menu#liquor
+                                        li
+                                            a(value='Bourbon') Bourbon 
+                                        li
+                                            a(value='Gin') Gin 
+                                        li
+                                            a(value='Irish Whiskey') Irish Whiskey 
+                                        li
+                                            a(value='Rum') Rum 
+                                        li
+                                            a(value='Rye Whiskey') Rye Whiskey  
+                                        li
+                                            a(value='Scotch') Scotch 
+                                        li
+                                            a(value='Vodka') Vodka  
+                                        li
+                                            a(value='Other') Other 
+                                        li
+                                            a(value='None of the above') None of the above 
+                                br
+                        .col-lg-4
+                            .input-group.wine
+                                label.control-label Wine
+                                .dropdown
+                                    button.btn.btn-default.dropdown-toggle#selectWine(type='button' data-toggle='dropdown' aria-expanded='true') Select 
+                                        span.caret
+                                    ul.dropdown-menu#wine
+                                        li
+                                            a(value='Red') Red 
+                                        li
+                                            a(value='White') White 
+                                        li
+                                            a(value='Rose') Rose 
+                                        li
+                                            a(value='Champagne') Champagne 
+                                        li
+                                            a(value='Other') Other 
+                                        li
+                                            a(value='None of the above') None of the above 
+                                br
+                    br
+                    .row
+                        .col-lg-4
+                            .input-group.soft_drink
+                                label.control-label Soft Drink
+                                .dropdown
+                                    button.btn.btn-default.dropdown-toggle#selectSoftDrink(type='button' data-toggle='dropdown' aria-expanded='true') Select 
+                                        span.caret
+                                    ul.dropdown-menu#softDrink
+                                        li
+                                            a(value='Coca-Cola') Coca-Cola 
+                                        li
+                                            a(value='Diet Coke') Diet Coke 
+                                        li
+                                            a(value='Pepsi Cola') Pepsi Cola 
+                                        li
+                                            a(value='Diet Pepsi') Diet Pepsi 
+                                        li
+                                            a(value='Mountain Dew') Mountain Dew 
+                                        li
+                                            a(value='Doctor Pepper') Doctor Pepper 
+                                        li
+                                            a(value='Sprite') Sprite 
+                                        li
+                                            a(value='Fanta') Fanta 
+                                        li
+                                            a(value='Other') Other 
+                                        li
+                                            a(value='None of the above') None of the above 
+                                br
+
+                        .col-lg-4
+                            .input-group.hotel
+                                label.control-label Hotel
+                                .dropdown
+                                    button.btn.btn-default.dropdown-toggle#selectHotel(type='button' data-toggle='dropdown' aria-expanded='true') Select 
+                                        span.caret
+                                    ul.dropdown-menu#hotel
+                                        li
+                                            a(value='Best Western') Best Western 
+                                        li
+                                            a(value='Choice Hotels') Choice Hotels 
+                                        li
+                                            a(value='Delta') Delta 
+                                        li
+                                            a(value='Hilton') Hilton 
+                                        li
+                                            a(value='Holiday Inn') Holiday Inn 
+                                        li
+                                            a(value='Marriott') Marriott 
+                                        li
+                                            a(value='Wyndham') Wyndham  
+                                        li
+                                            a(value='Other') Other 
+                                        li
+                                            a(value='None of the above') None of the above 
+                                br
+
+                        .col-lg-4
+                            .input-group.airline
+                                label.control-label Bank
+                                .dropdown
+                                    button.btn.btn-default.dropdown-toggle#selectAirline(type='button' data-toggle='dropdown' aria-expanded='true') Select 
+                                        span.caret
+                                    ul.dropdown-menu#airline
+                                        li
+                                            a(value='C.I.B.C.') C.I.B.C. 
+                                        li
+                                            a(value='Bank of Montreal') Bank of Montreal 
+                                        li
+                                            a(value='RBC') RBC 
+                                        li
+                                            a(value='Scotiabank') Scotiabank 
+                                        li
+                                            a(value='TD Canada Trust') TD Canada Trust 
+                                        li
+                                            a(value='National Bank of Canada') National Bank of Canada 
+                                        li
+                                            a(value='Laurentian Bank') Laurentian Bank 
+                                        li
+                                            a(value='Other') Other 
+                                        li
+                                            a(value='None of the above') None of the above 
+                                br
+
+                .form-group
+                    button#form.btn.btn-primary(type='submit') Submit
+
+                
+
+block js
+    script(src='/js/Authenticated.js')
+    script(src='/js/sponsor.js')

@@ -1,0 +1,96 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/admin.css')
+    link(rel='stylesheet', href='/css/member.css')
+    link(rel='stylesheet', href='/vendors/dropzone/dropzone.css')
+
+
+block content
+
+        div#map
+
+        .main-container
+            .main.wrapper.clearfix
+                article
+                    header
+                        h2 Welcome Admin
+                        br
+                        h3 Manage User Membership
+                        br
+                        table#user-list.table
+                            tr
+                                th
+                                    strong Member ID
+                                th
+                                    strong First Name
+                                th
+                                    strong Membership Status
+                                th
+                                    strong Admin Action
+
+                        br
+                        h3 Create an IWT or IBT
+
+                    section
+                        form#form
+                            .form-group
+                                label Message
+                                br
+                                textarea#content
+
+                                br
+                                br
+                                label Link to Website
+                                br
+                                input#link(type='text')
+
+                                br
+                                br
+                                label Address
+                                br
+                                input#address(type='text', style="width: 60%; margin-right: 10px;")
+
+                                button.btn.btn-default.btn-sm#insertMap(type='button') Insert Map
+                                br
+                                label Example: 77 Finch Ave. E. Toronto, Ontario, Canada M2N 6H8
+
+                                br
+                                br
+                                label Contact Info
+                                br
+                                input#contact(type='text')
+
+                                br
+                                br
+                                label IWT Message ID
+                                br
+                                input#iwt(type='text', placeholder='IWT0010')
+
+                                br
+                                br
+                                label IBT Message ID
+                                br
+                                input#ibt(type='text', placeholder='IBT0010')
+
+                                br
+                                br
+                                h4 Picture – upload Allow 3 pictures
+
+                        form#pic.dropzone(action='/vendor/image', drop-zone='')
+
+                        hr
+
+                        button.btn.btn-primary#submit Submit
+
+
+block js
+    script(src='/js/template.js')
+    script(src='/js/Authenticated.js')
+    script(src='/vendors/dropzone/dropzone.js')
+    script(async,defer,src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLCN1bX3bMr0FTpOx72fgCbyyrjpAq4Eo&signed_in=true")
+    if(user.admin)
+        script(src='/js/ShowAdminTab.js')
+    script(type='text/javascript').
+        var users = !{JSON.stringify(users)};
+    script(src='/js/admin.js')

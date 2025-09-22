@@ -1,0 +1,38 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/index.css')
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article
+              header#login
+                h3 
+                    i(class="fa fa-sign-in fa-md") 
+                    |  Member Login       
+                p
+                form#form.login(method='post', action='/login')
+                    input#id(type="text", name="id", placeholder="Member Id")
+                    p
+                    input#password(type="password", name="password", placeholder="Password")
+                    p
+                    button(class="btn btn-default btn-sm" type="submit").
+                        Login
+                    a(style="margin-left: 15px;" href="/forgot-password")
+                        | Forgot Password?
+                  
+              section
+                h3 
+                    i(class="fa fa-user-plus fa-md") 
+                    |  Not a Member? 
+                    a(href="/register") Join for free
+
+              section
+                h3 Search a Shirt Message:
+                p
+                input#searchMessage(type="text", name="search", placeholder="Enter Shirt Message Number", style="width:45%;")
+                p
+                button#submitSearchMessage.btn.btn-primary Submit
+block js
+    script(src='/js/index.js')

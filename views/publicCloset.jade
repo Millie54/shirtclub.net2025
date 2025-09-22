@@ -1,0 +1,19 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/publicCloset.css')
+    script(src='/vendors/viewerjs/dist/viewer.min.js')
+    link(rel='stylesheet', href='/vendors/viewerjs/dist/viewer.min.css')
+block content
+    .main-container
+      .main.wrapper.clearfix
+        h2(id='header')
+        div(class='table-responsive')
+            table(class='table', id='closet')
+
+block js
+    script(src='/js/Authenticated.js')
+    script(src='/js/publicCloset.js')
+    script(type='text/javascript').
+      var memberID = !{JSON.stringify(memberID)};

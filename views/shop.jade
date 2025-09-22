@@ -1,0 +1,393 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/shop.css')
+    script(src='https://js.stripe.com/v2/')
+    script(src='https://checkout.stripe.com/checkout.js')
+
+
+block content
+
+        .main-container
+          .main.wrapper.clearfix
+            article
+              header
+                h3
+                    i(class="fa fa-shopping-cart fa-md")
+                    |  Shop for a shirt
+              section
+                h4 About Shirt Club Numbers:
+                h4 There are two categories of numbers available to you when purchasing a shirt:
+                h5 1. Your Member ID number. Wearing a shirt with your member ID allows viewers to see information that you have provided on your &quot;Dynamic Form&quot;.
+                h5 2. Message numbers: Wearing a shirt with a Message number will display information relating to that number.
+
+                h4
+                  a(href='/about#convention') The Shirt Club Convention
+
+                h4 Symbols:
+                h4 Shirt Club shirts will always include a symbol. Please select one of the following symbols when purchasing a shirt:
+                    ul
+                        li Circle
+                        li Square
+                        li Rectangle
+                        li Star
+
+                br
+
+                h1 Start Shopping:
+                h3 Find a Shirt Club partner retailer here:
+                  a(href='https://shirtclub.net/contact')
+                        |Contact Us
+                br
+                h3 Design and purchase a shirt with Printful mock up software here:
+                h3
+                  a(href='https://www.printful.com/generator/a/1076521:076ce0798f53b65923e09fef8dc7c9af') Printful.com
+                br
+                h4
+                    a(href='/bulkOrder')
+                        i(class="fa fa-shopping-cart fa-md" data-toggle='modal' data-target='#returnPolicyModal')
+                        | &nbsp For orders of 100 shirts or more please go here
+          // Sept 03 2020 - Deliverable 7
+          //.main.wrapper.clearfix.shopStepOneSection
+          //  .row.buttonSelectorParent
+          //      .col-lg-6
+          //          h4
+          //          button.buttonSelectorChild(value="member_id" cart-property="print_id_type" type="button" class="btn btn-default btn-lg btn-block") A shirt with my Member ID please
+          //      .col-lg-6
+          //          h4
+          //          button.buttonSelectorChild(value="message_id" cart-property="print_id_type" type="button" class="btn btn-default btn-lg btn-block") A shirt with a message please
+          //
+          //  br
+          //
+          //  .memberIdOption.printIdType.defaultNoShow(style="display:none")
+          //      h2 Member ID will be printed:
+          //          span.memberId #{member_id}
+          //
+          //  .messageIdOption.printIdType.defaultNoShow(style="display:none")
+          //      h2 Search for a Message:
+          //      input#searchMessageInput.form-control.defaultInputEmpty(type="text" style="width:120px; margin-bottom: 6px;" placeholder="Message ID")
+          //      button#searchMessage(type="button" class="btn btn-primary btn-block" style="width:120px;") Search
+          //      #searchedMessageInfo.defaultNoShow(style="display:none")
+          //          h3 Message ID will be printed:
+          //              span.searchedMessageId
+          //          h4 Content:
+          //              div.searchedMessageContent
+          //          h4 Link:
+          //              div.searchedMessageLink
+          //          h4 Image:
+          //          image.searchedMessageImage(src="" style="max-width:100px;")
+          //
+          //
+          //  .row.buttonSelectorParent
+          //      .col-lg-6
+          //          h4
+          //          button.buttonSelectorChild(value="Woman" cart-property="gender" type="button" class="btn btn-default btn-lg btn-block") Women’s Shirts
+          //      .col-lg-6
+          //          h4
+          //          button.buttonSelectorChild(value="Men" cart-property="gender" type="button" class="btn btn-default btn-lg btn-block") Men’s Shirts
+          //
+          //  br
+          //
+          //  section
+          //      label.control-label Symbol
+          //      .dropdown
+          //          button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-expanded='true') Select
+          //              span.caret
+          //          ul.dropdown-menu
+          //              li(role='presentation' cart-property='symbol')
+          //                  a(value='Circle') Circle
+          //                  a(value='Triangle') Triangle
+          //                  a(value='Rectangle') Rectangle
+          //                  a(value='Star') Star
+          //      #itemImage
+          //
+          //  section
+          //      button.btn.btn-primary.nextController(step='two') Next
+          //
+          //
+          //  //section
+          //  //    label.control-label Type
+          //  //    .dropdown
+          //  //        button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-expanded='true') Select
+          //  //            span.caret
+          //  //        ul.dropdown-menu
+          //  //            li(role='presentation' cart-property='type')
+          //  //                a(value='V-Neck T-Shirt' price='15') V-Neck T-Shirt $15.00
+          //  //                a(value='Crew Neck T-Shirt' price='15') Crew Neck T-Shirt $15.00
+          //  //                a(value='Long Sleeve Crewneck' price='20') Long Sleeve Crewneck $20.00
+          //  //                a(value='Polo' price='25') Polo $25.00
+          //  //                a(value='Sweat shirt' price='40') Sweat shirt $40.00
+          //  //                a(value='Hoodie' price='40') Hoodie $40.00
+          //  //
+          //
+          //
+          //.main.wrapper.clearfix.shopStepTwoSection(style='display:none')
+          //  section
+          //    h1 Select a Shirt:
+          //    h3 please make a selection to see available designs for your shirt.
+          //  section
+          //    .shirtSelection(cart-property="product", value='ActualBlack', price='15')
+          //      img(src='/images/ActualBlack.jpg', width='200px')
+          //    .shirtSelection(cart-property="product", value='ActualBlue', price='20')
+          //      img(src='/images/ActualBlue.jpg', width='200px')
+          //    .shirtSelection(cart-property="product", value='ActualBrown', price='18')
+          //      img(src='/images/ActualBrown.jpg', width='200px')
+          //    .shirtSelection(cart-property="product", value='ActualGrey', price='17')
+          //      img(src='/images/ActualGrey.jpg', width='200px')
+          //    .shirtSelection(cart-property="product", value='ActualRed', price='17')
+          //      img(src='/images/ActualRed.jpg', width='200px')
+          //
+          //  section
+          //      button.btn.btn-primary.nextController(step='three') Next
+          //
+          // Sept 03 2020 - Deliverable 7
+
+          .main.wrapper.clearfix.shopStepThreeSection(style='display:none')
+            section
+              img#selectedProductImage(src='')
+
+            section
+              h5 Description:
+              | A Shirt with Style and Comfort (Example Description)
+            section
+                label.control-label Size
+                .dropdown
+                    button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-expanded='true') Select
+                        span.caret
+                    ul.dropdown-menu
+                        li(role='presentation' cart-property='size')
+                            a(value='Small') Small
+                            a(value='Medium') Medium
+                            a(value='Large') Large
+                            a(value='X-large') X-Large
+
+            section
+                label.control-label Quantity
+                .dropdown
+                    button.btn.btn-default.dropdown-toggle(type='button' data-toggle='dropdown' aria-expanded='true') Select
+                        span.caret
+                    ul.dropdown-menu
+                        li(role='presentation', cart-property='quantity')
+                            a(value='1') 1
+                            a(value='2') 2
+                            a(value='3') 3
+                            a(value='4') 4
+                            a(value='5') 5
+                            a(value='6') 6
+                            a(value='7') 7
+                            a(value='8') 8
+                            a(value='9') 9
+                            a(value='10') 10
+
+            section
+                a
+                    i(class="fa fa-info-circle fa-md" data-toggle='modal' data-target='#returnPolicyModal') &nbsp Return Policy
+            #returnPolicyModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalLabel', aria-hidden='true')
+                .modal-dialog(role='document')
+                    .modal-content
+                        .modal-header
+                            h5#exampleModalLabel.modal-title Return Policy
+                        .modal-body
+                            | All Sales Final: because all shirts are custom printed with your message or ID number all sales are final.
+                            br
+                            | Please take time to confirm that your order is correct and before proceeding to check out!
+                        .modal-footer
+                            button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+
+            section
+                button.btn.btn-primary#nextToConfirm Next To Confirmation
+
+          .main.wrapper.clearfix
+            .summarySection(style='display: none;')
+                h2 Order Summary
+                table.table
+                    thead
+                        tr
+                            th(scope='col') Item
+                            th(scope='col') Quantity
+                            th(scope='col') SubTotal
+                    tbody
+                        tr
+                            th(scope='row')
+                                span#summaryProduct
+                                span &nbsp(
+                                span#summaryGender
+                                span )&nbsp
+                                span#summarySize
+                                span &nbsp
+                                span -
+                                span $
+                                span#summaryPrice
+                            td
+                                span X
+                                span#summaryQuantity
+                            td
+                                span.summaryTotalPrice
+                        tr
+                            th.noBorderTableData(scope='row')
+                                span Print:
+                                span#summaryPrintId
+                            td.noBorderTableData
+                            td.noBorderTableData
+                        tr
+                            th.noBorderTableData(scope='row')
+                                span Symbol:
+                                span#summarySymbol
+                            td.noBorderTableData
+                            td.noBorderTableData
+                        tr
+                            th.summaryTotalTableData(scope='col') Payment Due
+                            td.summaryTotalTableData
+                            td.summaryTotalTableData
+                                span.summaryTotalPrice
+
+                    br
+                    button#pay.btn.btn-primary Buy
+                    button#restart.btn.btn-warning(style='margin-left:30px;') Restart
+                    br
+                    img(src='/images/stripe.png')
+
+
+                    //- hr
+                    //- .checkoutSummary
+                    //-     .summary
+                    //-         span#summaryType
+                    //-         span &nbsp(
+                    //-         span#summaryGender
+                    //-         span )&nbsp
+                    //-         span#summarySize
+                    //-         span &nbsp
+                    //-         span#summaryPrice
+                    //-         span &nbsp
+                    //-         span X
+                    //-         span#summaryQuantity
+                    //-         span#price.summaryTotalPrice
+                    //-     hr
+                    //-     .summary2
+                    //-         | Additional Message
+                    //-         span.price $0.00
+                    //-     hr(style='border-top: 4px double #8A8A8A;')
+                    //-     .total
+                    //-         | Payment Due
+                    //-         span.price $15.00
+                    //- br
+                    //- button#pay.btn.btn-primary Buy
+                    //- button#restart.btn.btn-warning(style='margin-left:30px;') Restart
+                    //- br
+                    //- img(src='/images/stripe.png')
+
+
+                //- section
+                //-     label.control-label Color
+                //-     .dropdown
+                //-         button.btn.btn-default.dropdown-toggle#selectColor(type='button' data-toggle='dropdown' aria-expanded='true') Select
+                //-             span.caret
+                //-         ul.dropdown-menu#color
+                //-             li(role='presentation')
+                //-                 a(value='Black') Black
+                //-                 a(value='White') White
+                //-                 a(value='Gray') Gray
+                //-                 a(value='Blue') Blue
+                //-                 a(value='Brown') Brown
+
+
+                //- section
+                //-     h4 Purchase a message?
+                //-     h6 Messages cost $5.00, $5.00 will be donated to the message owner.
+                //-     label.radio-inline
+                //-         input.purchase.yes(type='radio', name='purchase', required='', value='true')
+                //-         | Yes
+                //-     label.radio-inline
+                //-         input.purchase.no(type='radio', name='purchase', required='' value='false')
+                //-         | No
+
+
+                //- .toPurchase(style='display:none;')
+                //-     section
+                //-         h4 Please enter a Message Number
+                //-         input#purchaseMessage.form-control(type='text', placeholder='M0010', style='width:10%;')
+
+
+                //- #messagePositionNoPurchase(style='display:none;')
+                //-     section
+                //-         h4 Print Your Personal Membershop Numbers at
+                //-         input.noPurchasePosition.right(type='checkbox', name='selectPosition', value='right')
+                //-         |  Right Sleeve
+                //-         br
+                //-         input.noPurchasePosition.left(type='checkbox', name='selectPosition', value='left')
+                //-         |  Left Sleeve
+                //-         br
+                //-         input.noPurchasePosition.front(type='checkbox', name='selectPosition', value='front')
+                //-         |  Front
+                //-         br
+                //-         input.noPurchasePosition.back(type='checkbox', name='selectPosition', value='back')
+                //-         |  Back
+
+                //- #messagePositionYesPurchase(style='display:none;')
+                //-     section
+                //-         h4 Print Your Personal Membershop Numbers and Message Numbers at
+                //-         p Right Sleeve:
+                //-         label.radio-inline
+                //-             input.yesPurchaseRight.memberRight(type='radio', name='right', required='', value='true')
+                //-             | Membership Number
+                //-         label.radio-inline
+                //-             input.yesPurchaseRight.messageRight(type='radio', name='right', required='' value='false')
+                //-             | Message Number
+                //-         label.radio-inline
+                //-             input.yesPurchaseRight.noRight(type='radio', name='right', required='' value='false')
+                //-             | No number Here
+                //-         hr
+
+                //-         p Left Sleeve:
+                //-         label.radio-inline
+                //-             input.yesPurchaseLeft.memberLeft(type='radio', name='left', required='', value='true')
+                //-             | Membership Number
+                //-         label.radio-inline
+                //-             input.yesPurchaseLeft.messageLeft(type='radio', name='left', required='' value='false')
+                //-             | Message Number
+                //-         label.radio-inline
+                //-             input.yesPurchaseLeft.noLeft(type='radio', name='left', required='' value='false')
+                //-             | No number Here
+                //-         hr
+
+                //-         p Front:
+                //-         label.radio-inline
+                //-             input.yesPurchaseFront.memberFront(type='radio', name='front', required='', value='true')
+                //-             | Membership Number
+                //-         label.radio-inline
+                //-             input.yesPurchaseFront.messageFront(type='radio', name='front', required='' value='false')
+                //-             | Message Number
+                //-         label.radio-inline
+                //-             input.yesPurchaseFront.noFront(type='radio', name='front', required='' value='false')
+                //-             | No number Here
+
+                //-         hr
+
+                //-         p Back:
+                //-         label.radio-inline
+                //-             input.yesPurchaseBack.memberBack(type='radio', name='back', required='', value='true')
+                //-             | Membership Number
+                //-         label.radio-inline
+                //-             input.yesPurchaseBack.messageBack(type='radio', name='back', required='' value='false')
+                //-             | Message Number
+                //-         label.radio-inline
+                //-             input.yesPurchaseBack.noBack(type='radio', name='back', required='' value='false')
+                //-             | No number Here
+
+
+
+            //- .postCheckout(style='display:none;')
+            //-     hr
+            //-     .checkoutSummary
+            //-     br
+            //-     button.btn.btn-primary#pay Buy
+            //-     button.btn.btn-warning#restart(style="margin-left:30px;") Restart
+            //-     br
+            //-     img(src='/images/stripe.png')
+
+
+block js
+    script(type='text/javascript').
+            var user = !{JSON.stringify(user)};
+    script(src='/js/shop.js')
+    script(src='/js/Authenticated.js')

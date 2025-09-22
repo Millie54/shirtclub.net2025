@@ -1,0 +1,76 @@
+extend template
+
+block css
+	link(rel='stylesheet', href='/css/becomelocation.css')
+
+block content
+	.main-container
+		.main.wrapper.clearfix
+			article
+				header
+					h3 
+						i(class="fa fa-briefcase fa-md") 
+						|  Become a League location
+					p
+
+				section
+					h4 All shuffleboard tables are distributed by the league’s sponsor partners.
+					br
+					h4 League sponsors are entities capable of securing ten or more head leases on shuffleboards and then be responsible for distribution to locations.
+					br
+					h4 If you are interested in having a shuffleboard in your place of business please make an online request:
+
+				header
+					h3 
+						i(class="fa fa-info-circle fa-md") 
+						|  Request form
+					p
+
+				section
+					form#form(data-toggle='validator', role='form')
+						.form-group
+							label.control-label(for='inputName') Business Name
+							input#BusinessName.form-control(type='text', placeholder='Your business name', required='')
+
+						.form-group
+							label.control-label(for='inputName') Contact Name
+							input#ContactName.form-control(type='text', placeholder='Your name', required='')
+
+						.form-group
+							label.control-label(for='inputPosition') Position
+							input#Position.form-control(type='text', placeholder='Marketing Specialist', required='')
+
+						.form-group
+							label.control-label(for='inputPhone') Business Phone Number
+							input#Phone.form-control(type='tel', placeholder='416-423-1234', required='')
+
+						.form-group
+							label.control-label(for='inputPhone') Contact phone number (if different from business)
+							input#Phone.form-control(type='tel', placeholder='416-423-1234')
+
+						.form-group
+							label.control-label(for='inputAddress') Business Address
+							input#Phone.form-control(type='text', placeholder='1926 Johnson Rd, Toronto, ON, N2L 3E6', required='')
+
+						.form-group
+							label.control-label(for='inputEmail') Email
+							input#Phone.form-control(type='email', placeholder='Jason@theleague.ca', data-error='Bruh, that email address is invalid', required='')
+							.help-block.with-errors
+
+						.form-group
+							label.control-label.board-label(for='inputBoard') Do you currently have a shuffleboard at your location? 
+							label.radio-inline
+								input(type='radio', name='board', required='' value='yesBoard')
+								| Yes
+							label.radio-inline
+								input(type='radio', name='board', required='' value='noBoard')
+								| No
+
+						.form-group#info
+							label.control-label(for='information') Del-Coin will offer to purchase your existing table and apply credit towards your new league table.
+
+						.form-group
+							button#form.btn.btn-primary(type='submit') Submit
+
+block js
+	script(src='/js/becomelocation.js')

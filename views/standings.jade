@@ -1,0 +1,34 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/standings.css')
+    if(auth)
+        link(rel='stylesheet', href='/css/member.css')
+
+
+block content
+        .main-container
+            .main.wrapper.clearfix
+                article
+                    header
+                        h2 
+                            i(class="fa fa-bar-chart fa-md")
+                            | Welcome
+                            
+                    selction
+                        h3
+                            a(href='standings/statistic') Player Statistics
+                        h3
+                            a(href='standings/standing') Standings
+                        h3
+                            a(href='standings/ranking') Player Rankings
+                        h3
+                            a(href='standings/wolf') Top Wolves
+                        h3
+                            a(href='standings/lady') Ladies League
+
+
+block js
+    script(src='/js/standings.js')
+    if(auth)
+        script(src='/js/Authenticated.js')

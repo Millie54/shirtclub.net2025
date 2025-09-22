@@ -1,0 +1,76 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/rules.css')
+    if(auth)
+        link(rel='stylesheet', href='/css/member.css')
+
+
+block content
+        .main-container
+          .main.wrapper.clearfix
+            article
+              header#scrollable
+                h2
+                    a(href='#shuffleboard') Shuffleboard
+                    p
+                    a(href='#horsecollar') Horse Collar
+              section
+                h3
+                    a.plainText(name='shuffleboard') Shuffleboard Rules:
+                br
+                ul
+                    li Singles matches consist of two players (opponents) and singles games are played until one player reaches 15 points.
+                    li Doubles matches consist of four players playing in teams of two. Doubles matches are played until one team reaches 21 points.
+                    li Games with six players (2 teams of 3) and eight players (2 teams of 4) are played to 21 points.
+              section
+                h3 Object of the game:
+                br
+                | The objective of the game is to slide all four of one's Weights alternately against those of an opponent, so that they reach the highest scoring area without falling off the end of the board into the alley. A player's Weight(s) must be farther down the board than his opponent's Weight(s), in order to be in scoring position. This may be achieved either by knocking off the opponent's Weight(s), or by outdistancing them.
+              section
+                h3 The game:
+                br
+                ul
+                    li To start a game a opponents shoot one weight each. The weight closest to the end of the board and remaining on the board has choice of first or last shot to start the game.  It is an advantage in this game to shoot last; to have the “hammer”. Player shooting first and chooses the colour of weight they wish to have for the game.
+                    li Thereafter, the winner of the previous "end" starts the next.
+                    li Players slide their four weights alternately.  Every weight must hit a bank (side rail). The weight must pass over the “Hog’ line and not drop off the table in order to count.  It is normal for a player to deliberately knock already played weights in such a way that opponent’s weights might fall out of play while the player's weights cannon into an advantageous position.
+                    li Once all weights have been pushed down the table, the scores for the turn are calculated. A weight must be completely in a scoring zone to count the score indicated in the zone.
+                    li The player whose leading weight is farthest down the board is the winner of the round. The winner’s score is determined by adding the total points of all the winner’s weights that outdistance the opponent’s farthest weight.
+                    li A weight must be completely in score zone to achieve that score
+                    li A weight that extends over the edge of the board either at the end of the board or on the sides of the boards is considered a “hanger” and scores one additional point. A weight that hangs over both the end and the side receives only one additional point. If a hanger should fall off the board after the next weight thrown has ceased motion this weight should be replaced to the original hanger position.
+                    li The winner of a round shoots the first weight from the opposite end of the table to begin next round. If doubles then winning player’s partner shoots first to begin next round.
+                    li The game continues in this fashion until one player or team scores the winning point (Singles – 15 points, Doubles – 21 points).
+                    li Should a player shoot out of turn (first when he/she has the privilege of shooting last) then the player must finish the end in the same rotation sacrificing last weight or hammer.
+                    li If the leading weights for each team/player are determined to be tied no score is awarded. The determination of a leading weight may be made by a referee (location employee) or by 3 non-playing observers.
+                    li Players may walk to the opposite end of the board to examine the position of the weights.
+                    li A player in the act of shooting must be given free access to both sides of the shuffleboard table and may ask his opponent to vacate the area to allow full access to the area.
+                    li Playfield surface may not be altered by adding or removing wax during the match. Waxing must take place before a player takes first shot of a new match.
+              section
+                h3 Fouls and penalties:
+                br
+                ul
+                    li Weights that do not pass “Hog Line” or do not hit a bank when thrown must be removed from the playing surface. If this weight touches or moves any existing weights then these weights must be placed back to their original spots on table as they were before fouled weight was delivered. Fouled shot is forfeited.
+                    li Bumping or pushing on the table, stamping on the floor or causing vibration of any kind is illegal. Any weight falling from the playing surface due to these causes must be replaced.
+                    li Any touching of the playfield surface purposely or accidentally that alters the playfield during a match will result in the assessment of a one point penalty (one point added to opponents score) and the offending player must shoot first on the next round regardless of points scored during the offending round. Any placement or spilling of an object or liquid onto the playfield surface during a match is an alteration of the playfield surface and penalty will apply.
+
+              section
+                h3
+                    a.plainText(name='horsecollar') Horse Collar Rules:
+                br
+                ul
+                    li Horse Collar may be played by two to eight individual players or by teams of players.
+                    li A turn consists of one player throwing all eight weights from one end of the table. Player’s score is counted and recorded and an opposing player then plays from the opposite end of the table. Eight weights thrown by a player constitutes a round.
+
+              section
+                h3 Method of scoring:
+                br
+                ul
+                    li To score in a round one weight must be in the “3” area or better than 3 (5 or hanging). Cumulative score is then taken for all weights remaining on table with point values being assigned according to scoring areas where weights lie.
+                    li Failure to place at least one weight in the “3” area will result in a blank end. No score awarded for the round.
+                    li The first player to score 31 points or more, (51 points or more for team play) in an even number of rounds is the winner. In the case of a tie extra rounds are played until a winner is decided. “Even number of rounds means” that each player or team has thrown the same number of times.
+block js
+    script(src='/vendors/scroll/jquery.localScroll.min.js')
+    script(src='/vendors/scroll/jquery.scrollTo.min.js')
+    script(src='/js/rules.js')
+    if(auth)
+        script(src='/js/Authenticated.js')

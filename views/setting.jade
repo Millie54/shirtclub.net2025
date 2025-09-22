@@ -1,0 +1,105 @@
+extend template
+
+block css
+	link(rel='stylesheet', href='/css/setting.css')
+
+block content
+	.main-container
+		.main.wrapper.clearfix
+			article
+				header
+					h3 
+						i(class="fa fa-diamond fa-md") 
+						|  Edit Your Profile
+					p
+
+				section
+					form#form
+
+						.form-group
+							h3 Change Email
+							input#Email.form-control(type='email', placeholder='Jason@theleague.ca')
+							.help-block.with-errors
+
+
+						.form-group
+							h3 Change Address
+							label.control-label(for='inputStreet') Street Name
+							input#Street.form-control(type='text', placeholder='1926 Johnson Rd')
+							br
+
+							.row
+								.col-lg-3
+									.input-group
+										label.control-label(for='inputCountry') Country
+										.dropdown
+											button.btn.btn-default.dropdown-toggle#selectCountry(type='button' data-toggle='dropdown' aria-expanded='true') Select 
+												span.caret
+											ul.dropdown-menu#country(role='menu' aria-labelledby='selectCountry')
+												li(role='presentation')
+													a(value='') Select  
+													a(value='Canada') Canada 
+													a(value='USA') USA 
+													a(value='Australia') Australia 
+													a(value='England') England 
+													a(value='Scotland') Scotland 
+													a(value='Wales') Wales 
+													a(value='Northern Ireland') Northern Ireland 
+
+								.col-lg-3
+									.input-group
+										label.control-label(for='inputProvincd') Province/State
+										.dropdown
+											button.btn.btn-default.dropdown-toggle#selectProvince(type='button' data-toggle='dropdown' aria-expanded='true') Select 
+												span.caret
+											ul.dropdown-menu#province(role='menu' aria-labelledby='selectProvince')
+
+
+								.col-lg-3
+									.input-group
+
+										label.control-label(for='inputCity') City
+										input#City.form-control(type='text', placeholder='Toronto')
+
+								
+								
+
+								.col-lg-3
+									.input-group
+										label.control-label(for='inputZip') Zip/Postal Code
+										input#Zip.form-control(type='text', placeholder='N2L 3E6')
+
+						.form-group.marbottom
+							h3 Change Phone Number
+							br
+							.form-group.col-sm-6.pw-col-1
+								input#Phone.form-control(type='text', placeholder='416-423-1234', required='')
+
+							.form-group.col-sm-6.pw-col-2
+								label.radio-inline
+									input(type='radio', name='phone_number_type', required='', value='home')
+									| Home
+								label.radio-inline
+									input(type='radio', name='phone_number_type', required='', value='business')
+									| Business
+								label.radio-inline
+									input(type='radio', name='phone_number_type', required='' value='cell')
+									| Cell
+						.form-group.marbottom
+							h3 Change Password
+							.form-group.col-sm-6.pw-col-1.marbotzero
+								input#Password.form-control(type='password', data-minlength='6', placeholder='Password', required='')
+								span.help-block Minimum of 6 characters
+							.form-group.col-sm-6.pw-col-2
+								input#PasswordConfirm.form-control(type='password', data-match='#inputPassword', data-match-error="Whoops, these don't match" placeholder="Confirm" required='')
+								.help-block.with-errors
+						
+					
+
+
+					button#form.btn.btn-primary.settingDone Submit
+
+					.form-group#registrationStatus
+
+block js
+	script(src='/js/setting.js')

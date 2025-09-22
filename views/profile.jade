@@ -1,0 +1,311 @@
+extends template
+
+block css
+    link(rel='stylesheet', href='/css/Authenticated.css')
+    link(rel='stylesheet', href='/css/profile.css')
+    link(rel='stylesheet', href='/vendors/dropzone/dropzone.css')
+
+
+block content
+        .main-container
+            .main.wrapper.clearfix
+                article
+                    section
+                        h3 About managing your shirt:
+                        br
+                        h4 When you are wearing a shirtclub shirt people who see you have the ability to enter the numbers they see on your shirt and receive messages and/or personal information that you provide related to your numbers.
+                        h4 Please enter as much or as little information as you like in the “Dynamic” form below.
+                        h4 Please know that you can change information at any time and are able to turn viewing on and off for all entries made on your dynamic form.
+                        h3 Be careful!
+                        br
+                        h4 The information you provided at the bar on Saturday night might not be appropriate for church on Sunday morning.
+                        h4 Please mange your shirt wisely and be aware and considerate of the environment you are in.
+                    section
+                        h4 First Name:
+                        input#first_name(value="#{user.first_name}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_first_name', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_first_name', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Last Name:
+                        input#last_name(value="#{user.last_name}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_last_name', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_last_name', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Nick Name:
+                        input#nick_name(value="#{user.nick_name}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_nick_name', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_nick_name', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Medical Alert:
+                        input#medical_alert(value="#{user.medical_alert}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_medical_alert', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_medical_alert', required='', value='0')
+                            | Private
+                        hr
+
+                        div(id='blood-type-dropdown')
+                            h4 Blood Type&nbsp
+                                i(class='fa fa-info-circle fa-sm' data-toggle='tooltip' data-placement='right' title='IMPORTANT: If you do not know your blood type DO NOT GUESS!')
+                                span &nbsp:
+                                p
+                                .dropdown
+                                    button.btn.btn-default.dropdown-toggle#selectBloodType(type='button' data-toggle='dropdown' aria-expanded='true') Select
+                                        span.caret
+                                    ul.dropdown-menu#blood-type(role='menu')
+                                        <li role="presentation"><a value="A+" >A+ </a></li>
+                                        <li role="presentation"><a value="A-" >A- </a></li>
+                                        <li role="presentation"><a value="B+" >B+ </a></li>
+                                        <li role="presentation"><a value="B-" >B- </a></li>
+                                        <li role="presentation"><a value="O+" >O+ </a></li>
+                                        <li role="presentation"><a value="O-" >O- </a></li>
+                                        <li role="presentation"><a value="AB+" >AB+ </a></li>
+                                        <li role="presentation"><a value="AB-" >AB- </a></li>
+                        label.radio-inline
+                            input(type='radio', name='show_blood_type', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_blood_type', required='', value='0')
+                            | Private
+
+                        hr
+
+                        h4 General message – limit 100 words:
+                        textarea#message #{user.message}
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_message', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_message', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Birthday:
+                        input#birthday(value="#{user.birthday}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_birthday', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_birthday', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Marital Status:
+                        input#marital(value="#{user.marital}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_marital', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_marital', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Interested in meeting:
+                        textarea#meeting #{user.meeting}
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_meeting', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_meeting', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 School:
+                        input#school(value="#{user.school}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_school', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_school', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Current Occupation:
+                        input#occupation(value="#{user.occupation}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_occupation', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_occupation', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Likes – (limit 20 words):
+                        textarea#like #{user.like}
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_like', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_like', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Dislikes – (limit 20 words):
+                        textarea#dislike #{user.dislike}
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_dislike', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_dislike', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Things you can buy me:
+                        input#buy_me(value="#{user.buy_me}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_buy_me', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_buy_me', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 I am cheering for:
+                        input#cheer(value="#{user.cheer}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_cheer', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_cheer', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Prediction:
+                        textarea#prediction #{user.prediction}
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_prediction', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_prediction', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Follow me on Twitter
+                        input#twitter(type='text' placeholder='@')
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_twitter', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_twitter', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Follow me on Instagram
+                        input#instagram(type='text' placeholder='@')
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_instagram', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_instagram', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Follow me on Facebook
+                        input#facebook(type='text' placeholder='https://')
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_facebook', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_facebook', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 Check out my Youtube channel
+                        input#youtube(type='text' placeholder='https://')
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_youtube', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_youtube', required='', value='0')
+                            | Private
+                        hr
+
+                        h4 X-ray Vision&nbsp (Coming Soon)&nbsp
+                            i(class='fa fa-info-circle fa-sm' data-toggle='tooltip' data-placement='right' title='Upload pictures of undergarments purchased at Shirt Club retailers and that are now in your closet.')
+                            span &nbsp:
+                        input#xray_vision(value="#{user.xray_vision}")
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_xray_vision', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_xray_vision', required='', value='0')
+                            | Private
+                        hr
+                        
+                        h4 Picture – upload Allow 3 pictures
+                        form#pic.dropzone(action='/image', drop-zone='')
+
+                        br
+                        label.radio-inline
+                            input(type='radio', name='show_pic', required='', value='1')
+                            | Show Public
+                        label.radio-inline
+                            input(type='radio', name='show_pic', required='', value='0')
+                            | Private
+                        hr
+
+
+                    button.btn.btn-primary#submit Submit
+
+
+
+block js
+    script(src='/js/template.js')
+    script(src='/js/Authenticated.js')
+    script(type='text/javascript').
+        var user = !{JSON.stringify(user)};
+    script(src='/js/profile.js')
+    script(src='/vendors/dropzone/dropzone.js')

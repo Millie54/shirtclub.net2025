@@ -1,0 +1,11 @@
+nav{
+	font: 14px Helvetica, Helvetica Neue, Arial;
+}
+
+section, header{
+	margin-bottom:50px;
+}
+
+a{
+	cursor: pointer;
+}
